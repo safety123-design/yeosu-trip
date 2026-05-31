@@ -488,6 +488,28 @@
   :root[data-theme="light"] .tag-activity { color: #2E7A4F; }
   :root[data-theme="light"] .tag-drive { color: #5A47A0; }
 
+  /* 인라인 지도 링크 */
+  .link {
+    display: inline-block;
+    margin: 6px 8px 0 0;
+    padding: 4px 10px;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--sea-text);
+    background: rgba(74,143,168,0.14);
+    border: 1px solid rgba(74,143,168,0.3);
+    border-radius: 20px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .link:active { background: rgba(74,143,168,0.24); }
+  .link.t {
+    color: var(--accent-text);
+    background: rgba(201,168,76,0.14);
+    border-color: rgba(201,168,76,0.35);
+  }
+  .link.t:active { background: rgba(201,168,76,0.24); }
+
   /* ===== INFO CARDS ===== */
   .info-card {
     background: var(--surface);
@@ -1298,9 +1320,10 @@
       </div>
       <div class="timeline-item">
         <div class="timeline-time">PM 20:00</div>
-        <div class="timeline-title">마지막 밤 특별 저녁 식사 🎊</div>
-        <div class="timeline-desc">여수 대표 코스 요리. 갯장어회+샤부샤부 또는 새조개샤부샤부. 6인 기념 만찬!</div>
-        <span class="timeline-tag tag-food">저녁 · 기념 만찬</span>
+        <div class="timeline-title">짱뚱어탕 저녁 → 여수 귀가 · 엑스포 야경 산책</div>
+        <div class="timeline-desc">순천만 갯벌 별미 짱뚱어탕(뼈를 곱게 갈아 끓인 구수한 보양탕)으로 든든한 저녁 후, 여수로 돌아와 베네치아 옆 여수세계박람회장 야경을 시원하게 산책</div>
+        <a class="link" href="https://map.naver.com/p/search/순천만%20짱뚱어탕" target="_blank" rel="noopener">순천만가든·대대선창집</a>
+        <a class="link t" href="https://map.naver.com/p/search/여수세계박람회장" target="_blank" rel="noopener">엑스포 야경</a>
       </div>
     </div>
   </div>
