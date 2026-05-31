@@ -1,0 +1,1756 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>여수 힐링 여행 2026 🌊</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1B2A4A;
+    --navy-light: #253B65;
+    --gold: #C9A84C;
+    --gold-light: #E8C96E;
+    --sea: #4A8FA8;
+    --sea-light: #6AAEC7;
+    --sand: #F5EDD8;
+    --white: #FFFFFF;
+    --text-dark: #1A1A2E;
+    --text-muted: #6B7280;
+    --success: #2D7A4F;
+    --warm: #C25B2A;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background: var(--navy);
+    color: var(--white);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    position: relative;
+    background: linear-gradient(160deg, #0D1B2E 0%, #1B2A4A 40%, #1E3A5F 100%);
+    padding: 0;
+    overflow: hidden;
+    min-height: 320px;
+  }
+
+  .hero-waves {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 120px;
+    opacity: 0.15;
+  }
+
+  .hero-stars {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image:
+      radial-gradient(circle, rgba(255,255,255,0.8) 1px, transparent 1px),
+      radial-gradient(circle, rgba(201,168,76,0.6) 1px, transparent 1px);
+    background-size: 80px 80px, 130px 130px;
+    background-position: 10px 10px, 40px 40px;
+    animation: twinkle 4s infinite alternate;
+  }
+
+  @keyframes twinkle {
+    0% { opacity: 0.3; }
+    100% { opacity: 0.7; }
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 50px 24px 80px;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    background: rgba(201,168,76,0.2);
+    border: 1px solid rgba(201,168,76,0.5);
+    color: var(--gold-light);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    padding: 6px 16px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+  }
+
+  .hero h1 {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 8px;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.5);
+  }
+
+  .hero h1 span { color: var(--gold-light); }
+
+  .hero-sub {
+    font-size: 13px;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 24px;
+  }
+
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .hero-stat {
+    text-align: center;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 12px;
+    padding: 10px 16px;
+    min-width: 70px;
+  }
+
+  .hero-stat-num {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--gold-light);
+    display: block;
+  }
+
+  .hero-stat-label {
+    font-size: 10px;
+    color: rgba(255,255,255,0.6);
+    letter-spacing: 0.5px;
+  }
+
+  /* ===== VIDEO SECTION ===== */
+  .video-section {
+    background: #0D1B2E;
+    padding: 24px 16px;
+  }
+
+  .section-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .section-title::before {
+    content: '';
+    display: inline-block;
+    width: 4px;
+    height: 18px;
+    background: var(--gold);
+    border-radius: 2px;
+  }
+
+  .video-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .video-card {
+    background: rgba(255,255,255,0.06);
+    border-radius: 12px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: transform 0.2s;
+  }
+
+  .video-card:active { transform: scale(0.98); }
+
+  .video-thumb {
+    aspect-ratio: 16/9;
+    background: var(--navy-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .video-thumb-bg {
+    position: absolute;
+    inset: 0;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+
+  .play-btn {
+    width: 36px;
+    height: 36px;
+    background: rgba(201,168,76,0.9);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.5);
+  }
+
+  .play-btn::after {
+    content: '▶';
+    font-size: 12px;
+    color: white;
+    margin-left: 2px;
+  }
+
+  .video-label {
+    font-size: 11px;
+    padding: 8px 10px;
+    line-height: 1.4;
+    color: rgba(255,255,255,0.85);
+  }
+
+  /* ===== NAV TABS ===== */
+  .nav-tabs {
+    display: flex;
+    overflow-x: auto;
+    gap: 0;
+    background: #0A1628;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    scrollbar-width: none;
+  }
+
+  .nav-tabs::-webkit-scrollbar { display: none; }
+
+  .tab-btn {
+    flex-shrink: 0;
+    background: none;
+    border: none;
+    color: rgba(255,255,255,0.5);
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 12px;
+    padding: 14px 16px 12px;
+    cursor: pointer;
+    position: relative;
+    transition: color 0.2s;
+    white-space: nowrap;
+  }
+
+  .tab-btn.active {
+    color: var(--gold-light);
+  }
+
+  .tab-btn.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--gold);
+  }
+
+  /* ===== CONTENT PANELS ===== */
+  .panel { display: none; }
+  .panel.active { display: block; }
+
+  .content-area {
+    padding: 0 0 80px;
+    background: #0D1B2E;
+    min-height: 60vh;
+  }
+
+  /* ===== DAY CARDS ===== */
+  .day-section {
+    padding: 20px 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .day-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .day-badge {
+    background: var(--gold);
+    color: var(--navy);
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 20px;
+    flex-shrink: 0;
+  }
+
+  .day-date {
+    font-size: 15px;
+    font-weight: 500;
+    font-family: 'Noto Serif KR', serif;
+  }
+
+  .day-theme {
+    font-size: 11px;
+    color: rgba(255,255,255,0.5);
+    margin-top: 2px;
+  }
+
+  .timeline {
+    position: relative;
+    padding-left: 24px;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 7px; top: 8px; bottom: 8px;
+    width: 2px;
+    background: rgba(201,168,76,0.2);
+    border-radius: 1px;
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: 14px;
+  }
+
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -20px;
+    top: 5px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--gold);
+    border: 2px solid var(--navy);
+    box-shadow: 0 0 0 2px rgba(201,168,76,0.3);
+  }
+
+  .timeline-time {
+    font-size: 10px;
+    color: var(--gold);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    margin-bottom: 2px;
+  }
+
+  .timeline-title {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 4px;
+    line-height: 1.4;
+  }
+
+  .timeline-desc {
+    font-size: 12px;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.6;
+  }
+
+  .timeline-tag {
+    display: inline-block;
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-top: 4px;
+    font-weight: 500;
+  }
+
+  .tag-hotel { background: rgba(74,143,168,0.25); color: var(--sea-light); }
+  .tag-food { background: rgba(194,91,42,0.25); color: #E88A60; }
+  .tag-activity { background: rgba(45,122,79,0.25); color: #5BC483; }
+  .tag-drive { background: rgba(100,80,160,0.25); color: #A08AE0; }
+  .tag-pool { background: rgba(201,168,76,0.25); color: var(--gold-light); }
+  .tag-tip { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.7); }
+
+  /* ===== INFO CARDS ===== */
+  .info-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 14px;
+    padding: 16px;
+    margin-bottom: 12px;
+  }
+
+  .info-card-title {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--gold-light);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    gap: 12px;
+  }
+
+  .info-row:last-child { border-bottom: none; }
+
+  .info-label {
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+    flex-shrink: 0;
+    min-width: 70px;
+  }
+
+  .info-value {
+    font-size: 12px;
+    color: rgba(255,255,255,0.9);
+    text-align: right;
+    line-height: 1.5;
+  }
+
+  .info-value a {
+    color: var(--sea-light);
+    text-decoration: none;
+  }
+
+  .info-value a:hover { text-decoration: underline; }
+
+  .highlight-badge {
+    background: rgba(201,168,76,0.2);
+    border: 1px solid rgba(201,168,76,0.4);
+    color: var(--gold-light);
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 8px;
+    display: inline-block;
+  }
+
+  /* ===== POOL SECTION ===== */
+  .pool-card {
+    background: linear-gradient(135deg, rgba(74,143,168,0.15) 0%, rgba(27,42,74,0.8) 100%);
+    border: 1px solid rgba(74,143,168,0.4);
+    border-radius: 16px;
+    padding: 18px;
+    margin-bottom: 12px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pool-card::before {
+    content: '🏊';
+    position: absolute;
+    right: 16px;
+    top: 16px;
+    font-size: 32px;
+    opacity: 0.4;
+  }
+
+  .pool-name {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: var(--sea-light);
+  }
+
+  .pool-hotel {
+    font-size: 11px;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 12px;
+  }
+
+  .pool-detail {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+  }
+
+  .pool-icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: rgba(74,143,168,0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    flex-shrink: 0;
+  }
+
+  .pool-text {
+    font-size: 12px;
+    color: rgba(255,255,255,0.8);
+  }
+
+  .pool-text strong { color: var(--gold-light); }
+
+  /* ===== FERRY SECTION ===== */
+  .ferry-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px;
+    padding: 16px;
+    margin-bottom: 12px;
+  }
+
+  .ferry-route {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+
+  .ferry-port {
+    background: rgba(74,143,168,0.2);
+    color: var(--sea-light);
+    font-size: 12px;
+    font-weight: 700;
+    padding: 6px 12px;
+    border-radius: 8px;
+    text-align: center;
+  }
+
+  .ferry-arrow {
+    color: var(--gold);
+    font-size: 16px;
+    flex-grow: 1;
+    text-align: center;
+  }
+
+  .schedule-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .schedule-item {
+    background: rgba(255,255,255,0.06);
+    border-radius: 8px;
+    padding: 8px 10px;
+  }
+
+  .schedule-label {
+    font-size: 10px;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 4px;
+  }
+
+  .schedule-times {
+    font-size: 11px;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.6;
+  }
+
+  /* ===== RESTAURANT CARDS ===== */
+  .restaurant-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px;
+    padding: 14px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: background 0.2s;
+  }
+
+  .restaurant-card:active { background: rgba(255,255,255,0.09); }
+
+  .rest-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 6px;
+    gap: 8px;
+  }
+
+  .rest-name {
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .rest-price {
+    font-size: 11px;
+    color: var(--gold-light);
+    background: rgba(201,168,76,0.15);
+    padding: 2px 8px;
+    border-radius: 8px;
+    flex-shrink: 0;
+  }
+
+  .rest-type {
+    font-size: 11px;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 4px;
+  }
+
+  .rest-menu {
+    font-size: 12px;
+    color: rgba(255,255,255,0.7);
+  }
+
+  .rest-link {
+    font-size: 11px;
+    color: var(--sea-light);
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  /* ===== HOTEL SECTION ===== */
+  .hotel-card {
+    border-radius: 16px;
+    padding: 16px;
+    margin-bottom: 12px;
+    border: 1px solid;
+  }
+
+  .hotel-card.ramada {
+    background: linear-gradient(135deg, rgba(27,42,74,0.9), rgba(37,59,101,0.7));
+    border-color: rgba(201,168,76,0.3);
+  }
+
+  .hotel-card.venezia {
+    background: linear-gradient(135deg, rgba(15,40,60,0.9), rgba(30,60,90,0.7));
+    border-color: rgba(74,143,168,0.4);
+  }
+
+  .hotel-name {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+
+  .hotel-nights {
+    font-size: 11px;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 12px;
+  }
+
+  .hotel-link-btn {
+    display: inline-block;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.9);
+    font-size: 12px;
+    padding: 6px 14px;
+    border-radius: 20px;
+    text-decoration: none;
+    margin-top: 8px;
+    transition: background 0.2s;
+  }
+
+  .hotel-link-btn:active { background: rgba(255,255,255,0.14); }
+
+  /* ===== INSPIRE IMAGE GRID ===== */
+  .inspire-section { padding: 20px 16px; }
+
+  .inspire-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .inspire-item {
+    border-radius: 12px;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    background: linear-gradient(135deg, #1B2A4A, #253B65);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .inspire-item.tall { grid-row: span 2; aspect-ratio: auto; }
+
+  .inspire-emoji {
+    font-size: 40px;
+    margin-bottom: 8px;
+  }
+
+  .inspire-caption {
+    font-size: 11px;
+    color: rgba(255,255,255,0.7);
+    text-align: center;
+    padding: 0 8px;
+    line-height: 1.4;
+  }
+
+  .inspire-quote {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 13px;
+    font-style: italic;
+    color: var(--gold-light);
+    text-align: center;
+    padding: 16px;
+    line-height: 1.6;
+    background: rgba(201,168,76,0.08);
+    border-radius: 12px;
+    border-left: 3px solid var(--gold);
+    margin: 12px 0;
+  }
+
+  /* ===== TIPS ===== */
+  .tip-item {
+    display: flex;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    align-items: flex-start;
+  }
+
+  .tip-item:last-child { border-bottom: none; }
+
+  .tip-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 10px;
+    background: rgba(201,168,76,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+
+  .tip-text {
+    font-size: 13px;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.6;
+  }
+
+  .tip-text strong { color: var(--gold-light); }
+
+  /* ===== BOTTOM NAV ===== */
+  .bottom-nav {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    background: rgba(10,22,40,0.97);
+    border-top: 1px solid rgba(255,255,255,0.1);
+    display: flex;
+    padding: 8px 0 12px;
+    backdrop-filter: blur(10px);
+    z-index: 200;
+  }
+
+  .bnav-btn {
+    flex: 1;
+    background: none;
+    border: none;
+    color: rgba(255,255,255,0.4);
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 9px;
+    padding: 4px 0;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    transition: color 0.2s;
+  }
+
+  .bnav-btn.active { color: var(--gold); }
+
+  .bnav-icon { font-size: 20px; line-height: 1; }
+
+  /* ===== WEATHER TIP ===== */
+  .weather-banner {
+    background: linear-gradient(90deg, rgba(194,91,42,0.25), rgba(201,168,76,0.15));
+    border: 1px solid rgba(194,91,42,0.4);
+    border-radius: 12px;
+    padding: 12px 14px;
+    margin: 0 16px 16px;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .weather-icon { font-size: 20px; flex-shrink: 0; }
+
+  .weather-text {
+    font-size: 12px;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.5;
+  }
+
+  .weather-text strong { color: #E88A60; }
+
+  /* ===== CHECKLIST ===== */
+  .check-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    cursor: pointer;
+  }
+
+  .check-item:last-child { border-bottom: none; }
+
+  .check-box {
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-radius: 6px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+  }
+
+  .check-box.checked {
+    background: var(--gold);
+    border-color: var(--gold);
+  }
+
+  .check-box.checked::after {
+    content: '✓';
+    font-size: 12px;
+    color: var(--navy);
+    font-weight: 700;
+  }
+
+  .check-label {
+    font-size: 13px;
+    color: rgba(255,255,255,0.8);
+  }
+
+  .check-item.done .check-label {
+    text-decoration: line-through;
+    color: rgba(255,255,255,0.35);
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-stars"></div>
+  <svg class="hero-waves" viewBox="0 0 400 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,60 Q100,20 200,60 Q300,100 400,60 L400,120 L0,120 Z" fill="#4A8FA8"/>
+    <path d="M0,80 Q100,40 200,80 Q300,120 400,80 L400,120 L0,120 Z" fill="#1B2A4A"/>
+  </svg>
+  <div class="hero-content">
+    <div class="hero-badge">2026.07.06 — 07.10</div>
+    <h1>여수 <span>힐링</span> 여행</h1>
+    <p class="hero-sub">60~70대 6인의 느린 여행 · 돌산 → 오동도 → 금오도</p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <span class="hero-stat-num">4박</span>
+        <span class="hero-stat-label">숙박</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">5일</span>
+        <span class="hero-stat-label">여행</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">6명</span>
+        <span class="hero-stat-label">일행</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-num">2곳</span>
+        <span class="hero-stat-label">호텔</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 날씨 배너 -->
+<div class="weather-banner">
+  <div class="weather-icon">☀️</div>
+  <div class="weather-text">
+    <strong>7월 여수 날씨 안내</strong><br>
+    낮 기온 32~34°C, 자외선 매우 강함. 외출 시 챙 넓은 모자·자외선 차단제 필수. 오전 10시 이전 또는 오후 5시 이후 야외활동 권장.
+  </div>
+</div>
+
+<!-- 유튜브 영상 -->
+<div class="video-section">
+  <div class="section-title">여수 미리보기</div>
+  <div class="video-grid">
+    <a class="video-card" href="https://www.youtube.com/results?search_query=여수여행+2026" target="_blank">
+      <div class="video-thumb" style="background: linear-gradient(135deg,#0D2840,#1B4A6E);">
+        <div style="text-align:center;z-index:1;position:relative;">
+          <div style="font-size:28px;margin-bottom:6px;">🌊</div>
+          <div class="play-btn" style="margin:0 auto;"></div>
+        </div>
+      </div>
+      <div class="video-label">여수 여행 브이로그 2026</div>
+    </a>
+    <a class="video-card" href="https://www.youtube.com/results?search_query=금오도+비렁길" target="_blank">
+      <div class="video-thumb" style="background: linear-gradient(135deg,#0D3020,#1B5A3A);">
+        <div style="text-align:center;z-index:1;position:relative;">
+          <div style="font-size:28px;margin-bottom:6px;">🏝️</div>
+          <div class="play-btn" style="margin:0 auto;"></div>
+        </div>
+      </div>
+      <div class="video-label">금오도 비렁길 트레킹</div>
+    </a>
+    <a class="video-card" href="https://www.youtube.com/results?search_query=여수+고흥+연륙교+드라이브" target="_blank">
+      <div class="video-thumb" style="background: linear-gradient(135deg,#1A0D40,#3B1A80);">
+        <div style="text-align:center;z-index:1;position:relative;">
+          <div style="font-size:28px;margin-bottom:6px;">🌉</div>
+          <div class="play-btn" style="margin:0 auto;"></div>
+        </div>
+      </div>
+      <div class="video-label">여수-고흥 11개 연륙교 드라이브</div>
+    </a>
+    <a class="video-card" href="https://www.youtube.com/results?search_query=여수+오동도" target="_blank">
+      <div class="video-thumb" style="background: linear-gradient(135deg,#2A1500,#5A3010);">
+        <div style="text-align:center;z-index:1;position:relative;">
+          <div style="font-size:28px;margin-bottom:6px;">🌺</div>
+          <div class="play-btn" style="margin:0 auto;"></div>
+        </div>
+      </div>
+      <div class="video-label">오동도 · 장도 산책</div>
+    </a>
+  </div>
+</div>
+
+<!-- NAV TABS -->
+<div class="nav-tabs" id="navTabs">
+  <button class="tab-btn active" onclick="showPanel('schedule','btn0')" id="btn0">📅 일정</button>
+  <button class="tab-btn" onclick="showPanel('hotel','btn1')" id="btn1">🏨 호텔</button>
+  <button class="tab-btn" onclick="showPanel('pool','btn2')" id="btn2">🏊 수영장</button>
+  <button class="tab-btn" onclick="showPanel('ferry','btn3')" id="btn3">⛵ 여객선</button>
+  <button class="tab-btn" onclick="showPanel('food','btn4')" id="btn4">🍽 맛집</button>
+  <button class="tab-btn" onclick="showPanel('tips','btn5')" id="btn5">💡 팁</button>
+</div>
+
+<div class="content-area">
+
+<!-- ====== 일정 패널 ====== -->
+<div class="panel active" id="panel-schedule">
+
+  <!-- DAY 1 -->
+  <div class="day-section">
+    <div class="day-header">
+      <div class="day-badge">DAY 1</div>
+      <div>
+        <div class="day-date">7월 6일 (월) — 출발 · 합류 · 체크인</div>
+        <div class="day-theme">섬진강 합류 → 돌산 라마다 체크인 → 오동도 야간 산책</div>
+      </div>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-time">AM 08:00</div>
+        <div class="timeline-title">원주 출발 (1가족)</div>
+        <div class="timeline-desc">남해고속도로 경유, 섬진강IC 방면 이동</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">AM 09:30</div>
+        <div class="timeline-title">진주 출발 (2가족)</div>
+        <div class="timeline-desc">진주→남해고속도로 → 섬진강휴게소 합류지점</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">PM 12:30</div>
+        <div class="timeline-title">섬진강휴게소 합류 & 점심 🍱</div>
+        <div class="timeline-desc">6인 첫 만남! 휴게소 식사 후 여수 이동. 참게탕·재첩국 등 섬진강 명물 가능</div>
+        <span class="timeline-tag tag-food">점심 · 약 1시간</span>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">PM 14:30</div>
+        <div class="timeline-title">라마다플라자 돌산 여수 체크인 🏨</div>
+        <div class="timeline-desc">3룸 체크인 · 짐 정리 · 휴식. 오션뷰 고층 배정 요청(HighFloor 특별 요청됨)</div>
+        <span class="timeline-tag tag-hotel">라마다 1박차</span>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">PM 16:00</div>
+        <div class="timeline-title">라테르니 인피니티풀 힐링 🏊</div>
+        <div class="timeline-desc">5F 인피니티풀 입장. 비수기 요금 성인 15,000원. 마감 19:00 전, 18:00경까지 여유롭게 즐기고 저녁 이동</div>
+        <span class="timeline-tag tag-pool">비수기 14:00~19:00</span>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">PM 18:30</div>
+        <div class="timeline-title">돌산 해산물 저녁식사 🦀</div>
+        <div class="timeline-desc">돌산 갓김치와 여수 10미 코스. 게장백반, 서대회, 갓김치 추천. 오동도 인근 식당으로 잡아 식후 산책 연계</div>
+        <span class="timeline-tag tag-food">저녁 · 여수 10미</span>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">PM 20:00</div>
+        <div class="timeline-title">🌺 오동도 섬 힐링 야간 산책</div>
+        <div class="timeline-desc">저녁 식사 후 선선해진 시간, 768m 방파제 길을 따라 오동도 입섬. 일몰 후 바닷바람 맞으며 동백숲 산책로 힐링. 입장 무료·24시간 개방. 걸어서 들어가고 나올 때 동백열차(편도 1,000원) 이용 추천 — 노년층 다리 부담 줄이기 최적</div>
+        <span class="timeline-tag tag-activity">무료 · 동백열차 1,000원</span>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">PM 21:00</div>
+        <div class="timeline-title">호텔 귀환 · 휴식</div>
+        <div class="timeline-desc">돌산대교 야경 조망 후 휴식. 첫날 무리하지 않고 일찍 마무리</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 2 -->
+  <div class="day-section">
+    <div class="day-header">
+      <div class="day-badge">DAY 2</div>
+      <div>
+        <div class="day-date">7월 7일 (화) — 금오도 비렁길 · 연륙교 드라이브</div>
+        <div class="day-theme">라마다 조식 → 금오도 비렁길 → 연륙교 드라이브</div>
+      </div>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-time">AM 07:00</div>
+        <div class="timeline-title">라마다 라벨르 레스토랑 조식 🍳</div>
+        <div class="timeline-desc">예약된 조식 뷔페. 돌산 특산 갓김치 콩나물국, 황태해장국 등. 07:00~10:00</div>
+        <span class="timeline-tag tag-hotel">조식 포함 (7/7)</span>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">AM 08:00</div>
+        <div class="timeline-title">라마다 체크아웃 & 짐 이동</div>
+        <div class="timeline-desc">짐을 차에 싣고 신기선착장 이동. 약 15분 소요</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">AM 08:45</div>
+        <div class="timeline-title">신기선착장 도착 · 승선권 구매</div>
+        <div class="timeline-desc">돌산도 신기항 → 금오도 여천항. 대인 5,600원/인. 09:10 출발편 탑승 목표</div>
+        <span class="timeline-tag tag-activity">여객선 25분 소요</span>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">AM 09:10</div>
+        <div class="timeline-title">⛵ 신기항 출발 → 금오도 여천항</div>
+        <div class="timeline-desc">약 25분 항해. 함구미항까지 마을버스 이동 후 비렁길 1코스 입구</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">AM 09:50</div>
+        <div class="timeline-title">🏝 비렁길 1코스 트레킹</div>
+        <div class="timeline-desc">함구미 → 미역널방 → 송광사절터 → 신선대 → 두포 (5km, 약 2시간). 60~70대 페이스로 충분히 쉬어가며 진행. 절벽 아래 에메랄드 바다 비경!</div>
+        <span class="timeline-tag tag-activity">2~2.5시간 · 힐링 코스</span>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">PM 12:30</div>
+        <div class="timeline-title">금오도 방풍 해물파전 점심 🥘</div>
+        <div class="timeline-desc">금오도 특산 방풍 자장면, 방풍해물파전, 방풍서대회무침. 두포 마을 식당에서 식사</div>
+        <span class="timeline-tag tag-food">금오도 특산물</span>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">PM 14:00</div>
+        <div class="timeline-title">금오도 출발 → 신기항 귀항</div>
+        <div class="timeline-desc">14:30 출발편 탑승. 여천항 → 신기항</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">PM 15:00</div>
+        <div class="timeline-title">🌉 여수-고흥 연륙교 드라이브</div>
+        <div class="timeline-desc">77번 국도 섬섬길. 조화대교 → 팔영대교 → 둔병대교 → 낭도대교 → 적금대교. 바다 위를 달리는 짜릿한 드라이브! 중간 전망대에서 인증샷</div>
+        <span class="timeline-tag tag-drive">약 1.5시간 · 절경 드라이브</span>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">PM 17:00</div>
+        <div class="timeline-title">베네치아 호텔 체크인 🏨</div>
+        <div class="timeline-desc">오동도로 61-13. 3룸 체크인. HighFloor·AdjoiningRoom 요청됨</div>
+        <span class="timeline-tag tag-hotel">베네치아 1박차</span>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">PM 17:30</div>
+        <div class="timeline-title">🏊 베네치아 루프탑풀 2부 입장!</div>
+        <div class="timeline-desc">18F 루프탑풀 2부 17:30~20:00. 성인 15,000원. 오션뷰 석양을 바라보며 힐링 수영! 버블파티 18:30~20:00 (성인풀)</div>
+        <span class="timeline-tag tag-pool">2부 17:30~20:00</span>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">PM 20:00</div>
+        <div class="timeline-title">여수 야경 레스토랑 저녁 🌃</div>
+        <div class="timeline-desc">오동도 인근 해산물 레스토랑. 새조개 샤부샤부, 갈치조림, 전어구이</div>
+        <span class="timeline-tag tag-food">저녁</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 3 -->
+  <div class="day-section">
+    <div class="day-header">
+      <div class="day-badge">DAY 3</div>
+      <div>
+        <div class="day-date">7월 8일 (수) — 오동도 · 장도 · 순천</div>
+        <div class="day-theme">여유로운 오전 · 오동도 산책 · 순천만습지</div>
+      </div>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-time">AM 07:30</div>
+        <div class="timeline-title">베네치아 피렌체 레스토랑 (1F) 조식</div>
+        <div class="timeline-desc">자유 조식. 07:00~10:00. 뷔페 성인 34,000원 (예약 조식 아님, 별도 결제)</div>
+        <span class="timeline-tag tag-hotel">추천 · 선택</span>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">AM 10:00</div>
+        <div class="timeline-title">🌺 오동도 산책</div>
+        <div class="timeline-desc">도보 10분 거리. 동백나무 숲, 섬 한 바퀴 약 1시간. 오동도 분수대, 용굴, 방파제 노을 포인트. 더운 날씨이므로 그늘길 위주로 천천히</div>
+        <span class="timeline-tag tag-activity">약 1~1.5시간 · 쉬운 코스</span>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">PM 12:00</div>
+        <div class="timeline-title">여수 한정식 점심 🍱</div>
+        <div class="timeline-desc">여수 10미 한정식. 게장백반·서대회·장어구이 등 종합 코스</div>
+        <span class="timeline-tag tag-food">점심 · 여수 10미</span>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">PM 13:30</div>
+        <div class="timeline-title">장도 또는 해상케이블카</div>
+        <div class="timeline-desc">장도(국궁 체험·정원) or 여수 해상케이블카(20분 탑승·오션뷰). 컨디션에 따라 선택. 케이블카는 그늘이 있어 더위 피하기 좋음</div>
+        <span class="timeline-tag tag-activity">선택 활동</span>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">PM 15:30</div>
+        <div class="timeline-title">순천만 국가정원 또는 습지 방문</div>
+        <div class="timeline-desc">차량 30분. 순천만습지 갈대밭 산책(여름 녹음). 에어컨 있는 전시관 관람 가능. 더운 날은 일찍 귀환 권장</div>
+        <span class="timeline-tag tag-drive">선택 · 왕복 1시간</span>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">PM 18:30</div>
+        <div class="timeline-title">돌산 맛집 저녁 식사 🦑</div>
+        <div class="timeline-desc">갯장어 또는 새조개 샤부샤부. 여름 제철 갯장어 시즌!</div>
+        <span class="timeline-tag tag-food">저녁 · 제철 갯장어</span>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">PM 20:30</div>
+        <div class="timeline-title">베네치아 루프탑 야경 or 휴식</div>
+        <div class="timeline-desc">18F 루프탑에서 여수 야경 감상. 수영장 마감 후에도 전망 개방 여부 확인</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 4 -->
+  <div class="day-section">
+    <div class="day-header">
+      <div class="day-badge">DAY 4</div>
+      <div>
+        <div class="day-date">7월 9일 (목) — 베네치아 수영 · 자유시간</div>
+        <div class="day-theme">오전 자유 · 오후 수영 · 맛있는 저녁</div>
+      </div>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-time">AM 08:00</div>
+        <div class="timeline-title">여유로운 아침</div>
+        <div class="timeline-desc">호텔 내 자유시간. 피트니스(06:00~23:00 무료), 산책, 여수엑스포역 주변 카페</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">AM 11:00</div>
+        <div class="timeline-title">아쿠아플라넷 여수 (선택)</div>
+        <div class="timeline-desc">도보 10분. 실내 수족관으로 더위 피하기 최적. 18:00 매표 마감. 노약자도 편하게 관람 가능</div>
+        <span class="timeline-tag tag-activity">선택 · 실내 시원</span>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">PM 12:30</div>
+        <div class="timeline-title">여수항 인근 굴구이 점심 🦪</div>
+        <div class="timeline-desc">여수 10미 굴구이. 묵호식당 등 현지 인기 굴구이 식당</div>
+        <span class="timeline-tag tag-food">점심 · 굴구이</span>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">PM 14:00</div>
+        <div class="timeline-title">🏊 베네치아 루프탑풀 1부 입장</div>
+        <div class="timeline-desc">14:00~17:00 (1부 / 평일 기준). 성인 15,000원. 오동도 오션뷰 즐기기</div>
+        <span class="timeline-tag tag-pool">평일 1부 14:00~17:00</span>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">PM 17:30</div>
+        <div class="timeline-title">🏊 베네치아 루프탑풀 2부 연속 입장</div>
+        <div class="timeline-desc">2부 17:30~20:00. 추가 5,000원. 석양 속 오션뷰 수영! 버블파티 18:30 시작</div>
+        <span class="timeline-tag tag-pool">2부 17:30~20:00 · +5,000원</span>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">PM 20:00</div>
+        <div class="timeline-title">마지막 밤 특별 저녁 식사 🎊</div>
+        <div class="timeline-desc">여수 대표 코스 요리. 갯장어회+샤부샤부 또는 새조개샤부샤부. 6인 기념 만찬!</div>
+        <span class="timeline-tag tag-food">저녁 · 기념 만찬</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 5 -->
+  <div class="day-section">
+    <div class="day-header">
+      <div class="day-badge">DAY 5</div>
+      <div>
+        <div class="day-date">7월 10일 (금) — 조식 · 작별</div>
+        <div class="day-theme">베네치아 조식 · 커피 · 15시 전 귀가</div>
+      </div>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-time">AM 07:00</div>
+        <div class="timeline-title">🍳 베네치아 피렌체 조식 뷔페</div>
+        <div class="timeline-desc">예약된 조식 패키지 (2인 무료). 07:00~10:00 (라스트오더 09:30). 오션뷰 식당에서 여유로운 마지막 아침. 성인 34,000원 (패키지 적용)</div>
+        <span class="timeline-tag tag-hotel">조식 포함 (7/10)</span>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">AM 09:30</div>
+        <div class="timeline-time">베네치아 체크아웃</div>
+        <div class="timeline-desc">짐 정리 · 체크아웃. 주차장 이동</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">AM 10:00</div>
+        <div class="timeline-title">☕ 여수항 카페 시간</div>
+        <div class="timeline-desc">오동도 입구 or 여수엑스포역 근처 오션뷰 카페. 여수돌산갓김치 쇼핑도 OK</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">PM 12:00</div>
+        <div class="timeline-title">여수 마지막 점심 🍽</div>
+        <div class="timeline-desc">여수 갈치조림 또는 한정식 마지막 식사</div>
+        <span class="timeline-tag tag-food">점심 · 마지막 여수 음식</span>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-time">PM 14:30</div>
+        <div class="timeline-title">🤝 작별 인사 & 귀가</div>
+        <div class="timeline-desc">원주 방면 · 진주 방면 각자 출발. 다음 여행을 기약하며!</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== 호텔 패널 ====== -->
+<div class="panel" id="panel-hotel">
+  <div style="padding:20px 16px;">
+
+    <div class="hotel-card ramada">
+      <div class="hotel-name">라마다플라자 바이 윈덤 돌산 여수</div>
+      <div class="hotel-nights">7/6(월) 체크인 → 7/7(화) 체크아웃 · 1박</div>
+      <div class="info-card" style="background:rgba(255,255,255,0.05);border-color:rgba(201,168,76,0.2);">
+        <div class="info-row">
+          <div class="info-label">예약번호</div>
+          <div class="info-value">1731460852 · 1731463607</div>
+        </div>
+        <div class="info-row">
+          <div class="info-label">객실</div>
+          <div class="info-value">3룸 · 더블 디럭스 / 프리미어 오션뷰</div>
+        </div>
+        <div class="info-row">
+          <div class="info-label">인원</div>
+          <div class="info-value">성인 6명</div>
+        </div>
+        <div class="info-row">
+          <div class="info-label">조식</div>
+          <div class="info-value">7/7 예약 포함 (라벨르 레스토랑)</div>
+        </div>
+        <div class="info-row">
+          <div class="info-label">특별요청</div>
+          <div class="info-value">HighFloor · QuietRoom · AdjoiningRoom</div>
+        </div>
+        <div class="info-row">
+          <div class="info-label">주소</div>
+          <div class="info-value">여수시 돌산읍 강남로 11</div>
+        </div>
+        <div class="info-row">
+          <div class="info-label">전화</div>
+          <div class="info-value"><a href="tel:0616420000">061-642-0000</a></div>
+        </div>
+        <div class="info-row">
+          <div class="info-label">무료취소</div>
+          <div class="info-value">7/4 이전 취소 시 무료</div>
+        </div>
+      </div>
+      <a class="hotel-link-btn" href="http://www.ramadaplazadolsanyeosu.com" target="_blank">🏨 호텔 공식 홈페이지</a>
+    </div>
+
+    <div class="hotel-card venezia">
+      <div class="hotel-name">여수 베네치아 호텔 앤 스위트</div>
+      <div class="hotel-nights">7/8(수) 체크인 → 7/10(금) 체크아웃 · 2박</div>
+      <div class="info-card" style="background:rgba(255,255,255,0.05);border-color:rgba(74,143,168,0.2);">
+        <div class="info-row">
+          <div class="info-label">예약번호</div>
+          <div class="info-value">1731457116 · 1731458456</div>
+        </div>
+        <div class="info-row">
+          <div class="info-label">객실</div>
+          <div class="info-value">3룸 · Superior Double (요트 1회 포함)</div>
+        </div>
+        <div class="info-row">
+          <div class="info-label">인원</div>
+          <div class="info-value">성인 6명</div>
+        </div>
+        <div class="info-row">
+          <div class="info-label">조식</div>
+          <div class="info-value">7/10 조식 2인 패키지 포함<br><span style="font-size:11px;color:rgba(255,255,255,0.4);">피렌체 레스토랑 07:00~10:00</span></div>
+        </div>
+        <div class="info-row">
+          <div class="info-label">포함</div>
+          <div class="info-value">무료 Wi-Fi, 생수, 커피&차, 피트니스, 주차</div>
+        </div>
+        <div class="info-row">
+          <div class="info-label">특별요청</div>
+          <div class="info-value">HighFloor · QuietRoom · AdjoiningRoom</div>
+        </div>
+        <div class="info-row">
+          <div class="info-label">주소</div>
+          <div class="info-value">여수 수정동 오동도로 61-13</div>
+        </div>
+        <div class="info-row">
+          <div class="info-label">전화</div>
+          <div class="info-value"><a href="tel:0616640001">061-664-0001</a></div>
+        </div>
+        <div class="info-row">
+          <div class="info-label">무료취소</div>
+          <div class="info-value">7/6(1박) · 7/7(2박) 이전 취소 시 무료</div>
+        </div>
+      </div>
+      <a class="hotel-link-btn" href="https://www.yeosuvenezia.com" target="_blank">🏨 베네치아 공식 홈페이지</a>
+    </div>
+
+    <div class="inspire-quote">
+      "돌산의 바람과 베네치아의 오션뷰 사이에서, 우리는 잠시 바다가 됩니다."
+    </div>
+  </div>
+</div>
+
+<!-- ====== 수영장 패널 ====== -->
+<div class="panel" id="panel-pool">
+  <div style="padding:20px 16px;">
+
+    <div class="pool-card">
+      <div class="pool-name">라테르니 인피니티풀</div>
+      <div class="pool-hotel">라마다플라자 돌산 여수 · 5F</div>
+
+      <div class="pool-detail">
+        <div class="pool-icon">📅</div>
+        <div class="pool-text"><strong>7/6 여행일은 비수기</strong> — 성수기는 7/15~8/17</div>
+      </div>
+      <div class="pool-detail">
+        <div class="pool-icon">⏰</div>
+        <div class="pool-text">비수기 운영 <strong>14:00~19:00</strong></div>
+      </div>
+      <div class="pool-detail">
+        <div class="pool-icon">💰</div>
+        <div class="pool-text"><strong>비수기 성인 15,000원</strong> / 소인 10,000원</div>
+      </div>
+      <div class="pool-detail">
+        <div class="pool-icon">📞</div>
+        <div class="pool-text"><a href="tel:0616405012" style="color:var(--sea-light);">061-640-5012</a></div>
+      </div>
+      <div class="pool-detail">
+        <div class="pool-icon">ℹ️</div>
+        <div class="pool-text">참고: 성수기(7/15~8/17)는 1부 08:00~11:00 / 2부 13:00~21:00, 성인 20,000원</div>
+      </div>
+
+      <div style="margin-top:10px;">
+        <span class="highlight-badge">✅ 7/6 추천: 16:00 입장 → 18:00경 마무리 (19:00 마감)</span>
+      </div>
+      <a class="hotel-link-btn" href="http://www.ramadaplazadolsanyeosu.com/view/viewLink.do?page=homepage/KOR/facilities/Pool" target="_blank" style="display:inline-block;margin-top:10px;">🔗 공식 수영장 안내</a>
+    </div>
+
+    <div class="pool-card">
+      <div class="pool-name">라테르니 파크풀</div>
+      <div class="pool-hotel">라마다플라자 돌산 여수</div>
+
+      <div class="pool-detail">
+        <div class="pool-icon">💰</div>
+        <div class="pool-text"><strong>비수기 성인 15,000원</strong> (성수기 20,000원)</div>
+      </div>
+      <div class="pool-detail">
+        <div class="pool-icon">⏰</div>
+        <div class="pool-text">운영시간은 현장·홈페이지 확인 권장</div>
+      </div>
+      <a class="hotel-link-btn" href="http://www.ramadaplazadolsanyeosu.com/view/viewLink.do?page=homepage/KOR/facilities/Pool2" target="_blank" style="display:inline-block;margin-top:10px;">🔗 파크풀 공식 안내</a>
+    </div>
+
+    <div class="pool-card" style="border-color:rgba(74,143,168,0.5);">
+      <div class="pool-name">18F 루프탑풀 (사계절 온수)</div>
+      <div class="pool-hotel">여수 베네치아 호텔 · 18층</div>
+
+      <div class="pool-detail">
+        <div class="pool-icon">⏰</div>
+        <div class="pool-text"><strong>평일</strong> 1부 14:00~17:00 / 2부 17:30~20:00</div>
+      </div>
+      <div class="pool-detail">
+        <div class="pool-icon">⏰</div>
+        <div class="pool-text"><strong>금·토</strong> 1부 12:00~17:00 / 2부 17:30~20:00</div>
+      </div>
+      <div class="pool-detail">
+        <div class="pool-icon">💰</div>
+        <div class="pool-text"><strong>성인 15,000원</strong> / 소인 8,000원 (1·2부 각각)</div>
+      </div>
+      <div class="pool-detail">
+        <div class="pool-icon">💰</div>
+        <div class="pool-text">1부 이용 후 2부 연속 시 <strong>추가 5,000원</strong></div>
+      </div>
+      <div class="pool-detail">
+        <div class="pool-icon">🫧</div>
+        <div class="pool-text">버블파티 <strong>18:30~20:00</strong> (2부·성인풀 전용)</div>
+      </div>
+      <div class="pool-detail">
+        <div class="pool-icon">🌊</div>
+        <div class="pool-text">수심 1.2m 성인풀 + 사계절 온수 유지</div>
+      </div>
+
+      <div style="margin-top:10px;">
+        <span class="highlight-badge">⭐ 대표님 추천: 2부 17:30~20:00 입장 (석양 오션뷰 + 버블파티)</span>
+      </div>
+      <a class="hotel-link-btn" href="https://www.yeosuvenezia.com" target="_blank" style="display:inline-block;margin-top:10px;">🔗 베네치아 공식 홈페이지</a>
+    </div>
+
+    <div class="info-card">
+      <div class="info-card-title">🩱 수영 준비물 체크리스트</div>
+      <div id="swimChecklist">
+        <div class="check-item" onclick="toggleCheck(this)">
+          <div class="check-box"></div>
+          <div class="check-label">수영복 (인원별)</div>
+        </div>
+        <div class="check-item" onclick="toggleCheck(this)">
+          <div class="check-box"></div>
+          <div class="check-label">수영모 (필수 착용)</div>
+        </div>
+        <div class="check-item" onclick="toggleCheck(this)">
+          <div class="check-box"></div>
+          <div class="check-label">방수 자외선 차단제</div>
+        </div>
+        <div class="check-item" onclick="toggleCheck(this)">
+          <div class="check-box"></div>
+          <div class="check-label">슬리퍼·아쿠아슈즈</div>
+        </div>
+        <div class="check-item" onclick="toggleCheck(this)">
+          <div class="check-box"></div>
+          <div class="check-label">여분 타월 (호텔 1인 1장 제공)</div>
+        </div>
+        <div class="check-item" onclick="toggleCheck(this)">
+          <div class="check-box"></div>
+          <div class="check-label">방수 폰 케이스</div>
+        </div>
+        <div class="check-item" onclick="toggleCheck(this)">
+          <div class="check-box"></div>
+          <div class="check-label">음주 금지 — 안전을 위해</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== 여객선 패널 ====== -->
+<div class="panel" id="panel-ferry">
+  <div style="padding:20px 16px;">
+
+    <p style="font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:16px;line-height:1.6;">
+      돌산도 <strong style="color:white;">신기선착장</strong>에서 금오도까지 하루 7회 운항 (하계 기준). 비렁길 1코스 입구 함구미항까지는 여천항 도착 후 마을버스 이동.
+    </p>
+
+    <div class="ferry-card">
+      <div class="ferry-route">
+        <div class="ferry-port">신기항<br><span style="font-size:10px;font-weight:400;opacity:0.7;">돌산도</span></div>
+        <div class="ferry-arrow">⛵ 25분 →</div>
+        <div class="ferry-port">여천항<br><span style="font-size:10px;font-weight:400;opacity:0.7;">금오도</span></div>
+      </div>
+
+      <div class="schedule-grid">
+        <div class="schedule-item">
+          <div class="schedule-label">신기 → 여천 (하계)</div>
+          <div class="schedule-times">07:45 · 09:10 · 10:30<br>12:00 · 14:30 · 16:00 · 18:00</div>
+        </div>
+        <div class="schedule-item">
+          <div class="schedule-label">여천 → 신기 (하계)</div>
+          <div class="schedule-times">08:20 · 09:40 · 11:00<br>13:00 · 15:00 · 16:30 · 18:30</div>
+        </div>
+      </div>
+
+      <div style="margin-top:12px;padding:10px;background:rgba(201,168,76,0.1);border-radius:8px;border:1px solid rgba(201,168,76,0.25);">
+        <div style="font-size:11px;color:var(--gold-light);margin-bottom:4px;font-weight:600;">💡 7/7 추천 일정</div>
+        <div style="font-size:12px;color:rgba(255,255,255,0.75);line-height:1.6;">
+          09:10편 탑승 → 09:35 여천항 도착 → 버스로 함구미 이동(10~15분) → 비렁길 1코스 → 14:30편 귀항
+        </div>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <div class="info-card-title">📋 승선 안내</div>
+      <div class="info-row">
+        <div class="info-label">요금</div>
+        <div class="info-value">대인 <strong style="color:var(--gold-light);">5,600원</strong> (편도)</div>
+      </div>
+      <div class="info-row">
+        <div class="info-label">소요시간</div>
+        <div class="info-value">약 25분</div>
+      </div>
+      <div class="info-row">
+        <div class="info-label">예매</div>
+        <div class="info-value"><a href="https://island.theksa.co.kr" target="_blank">island.theksa.co.kr</a></div>
+      </div>
+      <div class="info-row">
+        <div class="info-label">신기항 주소</div>
+        <div class="info-value">여수시 돌산읍 신기리<br>(라마다호텔 차로 15분)</div>
+      </div>
+      <div class="info-row">
+        <div class="info-label">유의사항</div>
+        <div class="info-value">신분증 필수 · 기상 악화 시 결항</div>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <div class="info-card-title">🏝 비렁길 1코스 안내</div>
+      <div class="info-row">
+        <div class="info-label">코스</div>
+        <div class="info-value">함구미 → 미역널방 → 송광사절터 → 신선대 → 두포</div>
+      </div>
+      <div class="info-row">
+        <div class="info-label">거리</div>
+        <div class="info-value">5km</div>
+      </div>
+      <div class="info-row">
+        <div class="info-label">소요시간</div>
+        <div class="info-value">2~2.5시간 (60~70대 여유 페이스)</div>
+      </div>
+      <div class="info-row">
+        <div class="info-label">난이도</div>
+        <div class="info-value">보통 (오르내림 있으나 완만)</div>
+      </div>
+      <div class="info-row">
+        <div class="info-label">핵심 명소</div>
+        <div class="info-value">용두바위, 미역바위, 신선대, 송광사절터</div>
+      </div>
+      <div class="info-row">
+        <div class="info-label">맛집</div>
+        <div class="info-value">방풍자장면, 방풍해물파전, 방풍서대회</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== 맛집 패널 ====== -->
+<div class="panel" id="panel-food">
+  <div style="padding:20px 16px;">
+
+    <div class="section-title" style="font-size:14px;">🍽 여수 10미 — 꼭 먹어야 할 것들</div>
+
+    <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px;">
+      <span class="timeline-tag tag-food" style="font-size:11px;">돌산갓김치</span>
+      <span class="timeline-tag tag-food" style="font-size:11px;">게장백반</span>
+      <span class="timeline-tag tag-food" style="font-size:11px;">서대회</span>
+      <span class="timeline-tag tag-food" style="font-size:11px;">갯장어회</span>
+      <span class="timeline-tag tag-food" style="font-size:11px;">굴구이</span>
+      <span class="timeline-tag tag-food" style="font-size:11px;">새조개샤부</span>
+      <span class="timeline-tag tag-food" style="font-size:11px;">장어구이</span>
+      <span class="timeline-tag tag-food" style="font-size:11px;">갈치조림</span>
+      <span class="timeline-tag tag-food" style="font-size:11px;">전어회·구이</span>
+      <span class="timeline-tag tag-food" style="font-size:11px;">여수한정식</span>
+    </div>
+
+    <div class="section-title" style="font-size:14px;">📍 추천 식당</div>
+
+    <a class="restaurant-card" href="https://map.naver.com/v5/search/여수+게장백반+맛집" target="_blank">
+      <div class="rest-header">
+        <div class="rest-name">돌산 갓김치 게장백반 맛집</div>
+        <div class="rest-price">1인 15,000~</div>
+      </div>
+      <div class="rest-type">🦀 한식 · 여수 게장백반</div>
+      <div class="rest-menu">여수 1번지 밥상. 간장게장+돌산갓김치+서대회무침+계절 반찬 풀코스. 6인 전골 추천</div>
+      <div class="rest-link">🗺 네이버 지도에서 검색 →</div>
+    </a>
+
+    <a class="restaurant-card" href="https://map.naver.com/v5/search/여수+갯장어+샤부샤부" target="_blank">
+      <div class="rest-header">
+        <div class="rest-name">갯장어 코스 (하모 샤부샤부)</div>
+        <div class="rest-price">1인 35,000~</div>
+      </div>
+      <div class="rest-type">🐍 여름 제철 · 갯장어 전문</div>
+      <div class="rest-menu">7월이 갯장어 최대 성수기! 회·샤부샤부·탕 코스. 부드럽고 영양 만점. 노년층에 특히 추천</div>
+      <div class="rest-link">🗺 네이버 지도에서 검색 →</div>
+    </a>
+
+    <a class="restaurant-card" href="https://map.naver.com/v5/search/여수+새조개+샤부샤부" target="_blank">
+      <div class="rest-header">
+        <div class="rest-name">새조개 샤부샤부</div>
+        <div class="rest-price">1인 30,000~</div>
+      </div>
+      <div class="rest-type">🐚 여수 10미 · 조개 샤부샤부</div>
+      <div class="rest-menu">달콤한 새조개를 육수에 살짝 데쳐 먹는 여수식 샤부샤부. 탕까지 마무리</div>
+      <div class="rest-link">🗺 네이버 지도에서 검색 →</div>
+    </a>
+
+    <a class="restaurant-card" href="https://map.naver.com/v5/search/섬진강휴게소+점심" target="_blank">
+      <div class="rest-header">
+        <div class="rest-name">섬진강휴게소 (7/6 합류 점심)</div>
+        <div class="rest-price">1인 10,000~</div>
+      </div>
+      <div class="rest-type">🚗 남해고속도로 · 섬진강IC</div>
+      <div class="rest-menu">재첩국·참게탕·메기매운탕 등 섬진강 명물. 원주팀·진주팀 합류 포인트 12:30 미팅</div>
+      <div class="rest-link">🗺 네이버 지도에서 검색 →</div>
+    </a>
+
+    <a class="restaurant-card" href="https://map.naver.com/v5/search/여수+굴구이+맛집" target="_blank">
+      <div class="rest-header">
+        <div class="rest-name">여수항 굴구이</div>
+        <div class="rest-price">1인 20,000~</div>
+      </div>
+      <div class="rest-type">🦪 여수 10미 · 굴구이 전문</div>
+      <div class="rest-menu">여수 특산 생굴을 석쇠에 구워 먹는 방식. 2~4인 팀별 그릴 제공</div>
+      <div class="rest-link">🗺 네이버 지도에서 검색 →</div>
+    </a>
+
+  </div>
+</div>
+
+<!-- ====== 팁 패널 ====== -->
+<div class="panel" id="panel-tips">
+  <div style="padding:20px 16px;">
+
+    <div class="inspire-quote">
+      "느리게 걷는 사람이 더 많은 것을 본다. 60대의 여행은 완성이다."
+    </div>
+
+    <div class="info-card">
+      <div class="info-card-title">☀️ 건강 & 안전 팁</div>
+      <div class="tip-item">
+        <div class="tip-icon">🧴</div>
+        <div class="tip-text"><strong>자외선 차단제 SPF50+</strong> 필수. 7월 여수는 자외선 지수 최상. 2시간마다 재도포</div>
+      </div>
+      <div class="tip-item">
+        <div class="tip-icon">💧</div>
+        <div class="tip-text"><strong>수분 섭취</strong> — 1인 하루 1.5L 이상. 특히 야외 활동 시 30분마다 섭취</div>
+      </div>
+      <div class="tip-item">
+        <div class="tip-icon">🎩</div>
+        <div class="tip-text"><strong>챙 넓은 모자</strong> 필수. 비렁길·연륙교 드라이브 하차 시 직사광선 노출 큼</div>
+      </div>
+      <div class="tip-item">
+        <div class="tip-icon">🕙</div>
+        <div class="tip-text">야외 활동은 <strong>오전 10시 이전 or 오후 5시 이후</strong> 권장. 오후 12~4시는 실내·수영장 이용</div>
+      </div>
+      <div class="tip-item">
+        <div class="tip-icon">👟</div>
+        <div class="tip-text">비렁길은 <strong>트래킹화 또는 운동화</strong> 필수. 슬리퍼 착용 불가 (안전 위험)</div>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <div class="info-card-title">💡 여행 스마트 팁</div>
+      <div class="tip-item">
+        <div class="tip-icon">⛵</div>
+        <div class="tip-text">금오도 여객선은 <strong>사전 온라인 예매</strong> 권장 (island.theksa.co.kr). 성수기 현장 매진 주의</div>
+      </div>
+      <div class="tip-item">
+        <div class="tip-icon">🏊</div>
+        <div class="tip-text">베네치아 수영장 <strong>2부(17:30)</strong>가 석양+버블파티로 최고. 입장권은 프런트에서 미리 구매</div>
+      </div>
+      <div class="tip-item">
+        <div class="tip-icon">🌉</div>
+        <div class="tip-text">여수-고흥 연륙교 드라이브는 <strong>야간 조명</strong>이 특히 아름다움. 7/7 저녁에 재방문 가능</div>
+      </div>
+      <div class="tip-item">
+        <div class="tip-icon">🛒</div>
+        <div class="tip-text"><strong>돌산갓김치</strong>는 귀가 전 마지막 날 쇼핑. 진공포장으로 냄새 없음</div>
+      </div>
+      <div class="tip-item">
+        <div class="tip-icon">📱</div>
+        <div class="tip-text">단체 <strong>카카오톡 단체방</strong> 개설 후 이 앱 공유. 일정 변경 사항 실시간 공유</div>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <div class="info-card-title">🚗 이동 정보</div>
+      <div class="info-row">
+        <div class="info-label">원주→섬진강</div>
+        <div class="info-value">약 3~3.5시간 (고속도로)</div>
+      </div>
+      <div class="info-row">
+        <div class="info-label">진주→섬진강</div>
+        <div class="info-value">약 1~1.5시간</div>
+      </div>
+      <div class="info-row">
+        <div class="info-label">섬진강→돌산</div>
+        <div class="info-value">약 1.5~2시간</div>
+      </div>
+      <div class="info-row">
+        <div class="info-label">라마다→신기항</div>
+        <div class="info-value">약 15분</div>
+      </div>
+      <div class="info-row">
+        <div class="info-label">돌산→베네치아</div>
+        <div class="info-value">약 20분</div>
+      </div>
+    </div>
+
+    <div class="inspire-grid" style="margin-top:8px;">
+      <div class="inspire-item">
+        <div class="inspire-emoji">🌅</div>
+        <div class="inspire-caption">돌산에서 맞이하는 일출</div>
+      </div>
+      <div class="inspire-item">
+        <div class="inspire-emoji">🏝️</div>
+        <div class="inspire-caption">금오도 비렁길의 에메랄드 바다</div>
+      </div>
+      <div class="inspire-item">
+        <div class="inspire-emoji">🌉</div>
+        <div class="inspire-caption">11개 연륙교 바다 위 드라이브</div>
+      </div>
+      <div class="inspire-item">
+        <div class="inspire-emoji">🌊</div>
+        <div class="inspire-caption">18층 루프탑에서 바라본 오동도</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</div><!-- content-area -->
+
+<!-- BOTTOM NAV -->
+<div class="bottom-nav">
+  <button class="bnav-btn active" id="bnav0" onclick="showPanel('schedule','btn0','bnav0')">
+    <span class="bnav-icon">📅</span>
+    <span>일정</span>
+  </button>
+  <button class="bnav-btn" id="bnav1" onclick="showPanel('hotel','btn1','bnav1')">
+    <span class="bnav-icon">🏨</span>
+    <span>호텔</span>
+  </button>
+  <button class="bnav-btn" id="bnav2" onclick="showPanel('pool','btn2','bnav2')">
+    <span class="bnav-icon">🏊</span>
+    <span>수영장</span>
+  </button>
+  <button class="bnav-btn" id="bnav3" onclick="showPanel('ferry','btn3','bnav3')">
+    <span class="bnav-icon">⛵</span>
+    <span>여객선</span>
+  </button>
+  <button class="bnav-btn" id="bnav4" onclick="showPanel('food','btn4','bnav4')">
+    <span class="bnav-icon">🍽</span>
+    <span>맛집</span>
+  </button>
+  <button class="bnav-btn" id="bnav5" onclick="showPanel('tips','btn5','bnav5')">
+    <span class="bnav-icon">💡</span>
+    <span>팁</span>
+  </button>
+</div>
+
+<script>
+let currentPanel = 'schedule';
+let currentTabBtn = 'btn0';
+let currentNavBtn = 'bnav0';
+
+function showPanel(panelId, tabId, navId) {
+  document.getElementById('panel-' + currentPanel).classList.remove('active');
+  document.getElementById(currentTabBtn).classList.remove('active');
+  if(document.getElementById(currentNavBtn)) document.getElementById(currentNavBtn).classList.remove('active');
+
+  document.getElementById('panel-' + panelId).classList.add('active');
+  document.getElementById(tabId).classList.add('active');
+  if(navId && document.getElementById(navId)) document.getElementById(navId).classList.add('active');
+
+  currentPanel = panelId;
+  currentTabBtn = tabId;
+  if(navId) currentNavBtn = navId;
+
+  document.getElementById('navTabs').scrollLeft = document.getElementById(tabId).offsetLeft - 20;
+  window.scrollTo({ top: document.querySelector('.nav-tabs').offsetTop - 10, behavior: 'smooth' });
+}
+
+function toggleCheck(el) {
+  const box = el.querySelector('.check-box');
+  box.classList.toggle('checked');
+  el.classList.toggle('done');
+}
+</script>
+
+</body>
+</html>
