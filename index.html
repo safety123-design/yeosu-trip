@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#0f2c27">
 <title>여수 · 우리 여섯의 네 밤 다섯 날 | 2026.07.06–07.10</title>
-<!-- 카카오톡·SNS 공유 미리보기 -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="여수 힐링여행 🌿 우리 여섯의 네 밤 다섯 날">
 <meta property="og:description" content="2026.07.06–07.10 · 일정 · 호텔 · 수영장 · 빅오쇼 · 맛집 — 누르면 바로 열려요">
@@ -23,7 +22,7 @@
     --sand:#efe7d6; --line:#e4dac4;
     --shadow:0 18px 50px -24px rgba(20,58,51,.30);
     --shadow-sm:0 8px 24px -14px rgba(20,58,51,.25);
-    --fs:1;
+    --fs:1; --dc:var(--gold); --dcd:#6e4e1a;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth;font-size:calc(100% * var(--fs));-webkit-text-size-adjust:100%}
@@ -33,6 +32,9 @@
   .wrap{max-width:780px;margin:0 auto;padding:0 24px}
   a{color:inherit}
   .kicker{font-size:.72rem;letter-spacing:.36em;text-transform:uppercase;font-weight:700;color:var(--gold)}
+
+  /* ===== SCROLL PROGRESS ===== */
+  .prog{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--gold),var(--gold-soft));z-index:120;transition:width .12s linear}
 
   /* ===== FONT SCALER ===== */
   .fontctl{position:fixed;right:14px;bottom:16px;z-index:90;display:flex;align-items:center;gap:6px;background:var(--green);color:#fff;border-radius:50px;padding:8px 10px 8px 15px;box-shadow:0 10px 30px -8px rgba(15,44,39,.55)}
@@ -47,26 +49,33 @@
   .todaybar.show{display:block}
   .todaybar a{color:#241803;text-decoration:underline;text-underline-offset:3px}
 
-  /* ===== HERO ===== */
-  .hero{position:relative;color:#f4efe2;text-align:center;overflow:hidden;padding:92px 24px 130px;
-    background:radial-gradient(130% 100% at 78% 6%,rgba(184,137,61,.30),transparent 52%),
-      radial-gradient(120% 90% at 12% 24%,rgba(31,90,78,.55),transparent 55%),
-      linear-gradient(165deg,#0f2c27 0%,#123a32 55%,#16463b 100%)}
-  .hero .grain{position:absolute;inset:0;opacity:.06;background-image:radial-gradient(circle at 1px 1px,#fff 1px,transparent 0);background-size:5px 5px}
-  .hero .frameline{position:absolute;inset:22px;border:1px solid rgba(202,160,90,.32);pointer-events:none}
+  /* ===== HERO — 남해의 빛 ===== */
+  .hero{position:relative;color:#f4efe2;text-align:center;overflow:hidden;padding:92px 24px 150px;background:#0f2c27}
+  .hero .sea{position:absolute;inset:0;width:100%;height:100%}
+  .hero .frameline{position:absolute;inset:22px;border:1px solid rgba(202,160,90,.30);pointer-events:none;z-index:3}
+  .hero .ct2{position:relative;z-index:4}
   .hero .kicker{color:var(--gold-soft);animation:rise .9s .05s both}
-  .hero h1{font-size:clamp(2.6rem,11vw,4.7rem);font-weight:700;line-height:1.12;margin-top:18px;letter-spacing:-.01em;text-shadow:0 6px 34px rgba(0,0,0,.32);animation:rise .9s .15s both}
-  .hero h1 em{font-style:normal;color:var(--gold-soft)}
-  .hero .dday{display:inline-flex;align-items:center;gap:9px;margin-top:26px;background:rgba(202,160,90,.16);border:1px solid rgba(202,160,90,.45);border-radius:50px;padding:9px 20px;font-weight:700;font-size:.98rem;color:#fff;animation:rise .9s .25s both}
-  .hero .dday b{color:var(--gold-soft);font-size:1.18rem;font-family:'Gowun Batang',serif}
+  .hero h1{font-size:clamp(2.6rem,11vw,4.7rem);font-weight:700;line-height:1.12;margin-top:18px;letter-spacing:-.01em;text-shadow:0 4px 28px rgba(8,20,16,.65);animation:rise .9s .15s both}
+  .hero h1 em{font-style:normal;color:#f3d9a0}
+  .hero .dday{display:inline-flex;align-items:center;gap:9px;margin-top:26px;background:rgba(12,30,25,.45);border:1px solid rgba(202,160,90,.5);backdrop-filter:blur(4px);border-radius:50px;padding:9px 20px;font-weight:700;font-size:.98rem;color:#fff;animation:rise .9s .25s both}
+  .hero .dday b{color:#f3d9a0;font-size:1.18rem;font-family:'Gowun Batang',serif}
   .hero .rule{width:54px;height:1.5px;background:var(--gold-soft);margin:24px auto;animation:rise .9s .3s both}
-  .hero .sub{font-size:1.06rem;color:#d9e3da;font-weight:300;animation:rise .9s .35s both}
-  .hero .quote{margin-top:8px;font-size:1.18rem;opacity:.94;animation:rise .9s .45s both}
+  .hero .sub{font-size:1.06rem;color:#e7ecdf;font-weight:300;animation:rise .9s .35s both;text-shadow:0 2px 12px rgba(8,20,16,.6)}
+  .hero .quote{margin-top:8px;font-size:1.18rem;opacity:.96;animation:rise .9s .45s both;text-shadow:0 2px 12px rgba(8,20,16,.6)}
   .hero .meta{display:flex;gap:9px;justify-content:center;flex-wrap:wrap;margin-top:30px;animation:rise .9s .55s both}
-  .hero .pill{background:rgba(255,255,255,.08);border:1px solid rgba(202,160,90,.34);padding:9px 16px;border-radius:50px;font-size:.86rem;font-weight:500}
+  .hero .pill{background:rgba(12,30,25,.4);border:1px solid rgba(202,160,90,.4);backdrop-filter:blur(4px);padding:9px 16px;border-radius:50px;font-size:.86rem;font-weight:500}
   @keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
-  .wave{position:absolute;bottom:-1px;left:0;width:100%;line-height:0}
+  .wave{position:absolute;bottom:-1px;left:0;width:100%;line-height:0;z-index:5}
   .wave svg{width:100%;height:64px;display:block}
+  /* 은은한 모션 */
+  @keyframes glowp{0%,100%{opacity:.75}50%{opacity:1}}
+  .sunglow{animation:glowp 9s ease-in-out infinite}
+  @keyframes shim{0%,100%{opacity:.12}50%{opacity:.55}}
+  .yun{animation:shim 6s ease-in-out infinite}
+  .yun.y2{animation-delay:1.6s}.yun.y3{animation-delay:3.1s}.yun.y4{animation-delay:4.4s}
+  @keyframes drift{0%{transform:translateX(0)}100%{transform:translateX(-46px)}}
+  .wgroup{animation:drift 14s ease-in-out infinite alternate}
+  @media (prefers-reduced-motion: reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
 
   /* ===== DAY NAV ===== */
   .daynav{position:sticky;top:0;z-index:50;background:rgba(251,248,241,.93);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
@@ -75,6 +84,8 @@
   .daynav a{flex:0 0 auto;text-decoration:none;color:var(--green);font-weight:700;font-size:.82rem;padding:9px 15px;border-radius:50px;border:1px solid var(--line);background:var(--paper);transition:.2s;white-space:nowrap}
   .daynav a:hover{border-color:var(--green-light);background:#fff}
   .daynav a b{color:var(--terra)}
+  .daynav a.act{background:var(--green);border-color:var(--green);color:#fff}
+  .daynav a.act b{color:#f3d9a0}
   .daynav a.today{background:var(--gold);border-color:var(--gold);color:#241803}
   .daynav a.today b{color:#241803}
 
@@ -86,19 +97,16 @@
   .shead p{color:var(--ink-soft);margin-top:12px;font-size:.98rem;max-width:60ch}
   .shead .ln{width:46px;height:1.5px;background:var(--gold);margin-top:18px}
 
-  /* ===== HIGHLIGHTS ===== */
+  /* ===== HIGHLIGHTS — 풍경 엽서 ===== */
   .hl{background:var(--paper)}
   .hlgrid{display:grid;gap:16px;grid-template-columns:1fr 1fr}
   @media(min-width:640px){.hlgrid{grid-template-columns:1fr 1fr 1fr}}
-  .hlcard{position:relative;border:1px solid var(--line);border-radius:18px;overflow:hidden;text-decoration:none;color:#fff;min-height:158px;display:flex;flex-direction:column;justify-content:flex-end;padding:18px;box-shadow:var(--shadow-sm);transition:.25s}
+  .hlcard{border:1px solid var(--line);border-radius:18px;overflow:hidden;text-decoration:none;background:var(--paper);box-shadow:var(--shadow-sm);transition:.25s;display:flex;flex-direction:column}
   .hlcard:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
-  .hlcard .em{position:absolute;top:14px;right:15px;font-size:1.5rem;opacity:.9;z-index:2}
-  .hlcard h4{font-size:1.12rem;font-weight:700;position:relative;z-index:2}
-  .hlcard p{font-size:.8rem;opacity:.92;margin-top:3px;position:relative;z-index:2;font-weight:300}
-  .hlcard::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,44,39,.12),rgba(15,44,39,.78))}
-  .hl1{background:linear-gradient(135deg,#1f5a4e,#0f2c27)} .hl2{background:linear-gradient(135deg,#b8893d,#7a4d18)}
-  .hl3{background:linear-gradient(135deg,#3a5fa0,#131e4e)} .hl4{background:linear-gradient(135deg,#2a7d6b,#143a33)}
-  .hl5{background:linear-gradient(135deg,#3b6ea5,#16364f)} .hl6{background:linear-gradient(135deg,#5a4a86,#2a2350)}
+  .hlcard svg.art{display:block;width:100%;height:auto}
+  .hlcard .cap2{padding:13px 15px 15px}
+  .hlcard .cap2 h4{font-size:1.06rem;font-weight:700;color:var(--ink)}
+  .hlcard .cap2 p{font-size:.78rem;color:var(--ink-soft);margin-top:2px}
 
   /* ===== POOLS ===== */
   .pools{background:linear-gradient(165deg,#0f2c27,#16463b);color:#f4efe2}
@@ -135,27 +143,31 @@
   .innote{display:flex;gap:10px;margin-top:16px;background:#fbf3e2;border:1px solid #ecdcb8;border-left:4px solid var(--gold);border-radius:11px;padding:12px 14px;font-size:.82rem;color:#6e521b;line-height:1.6}
   .innote b{color:#85631f}
 
-  /* ===== DAYS ===== */
+  /* ===== DAYS — 시그니처 컬러 ===== */
   .day{margin-bottom:30px;scroll-margin-top:96px}
+  .day[data-c="d1"]{--dc:#1f6e7a;--dcd:#0e3b43}
+  .day[data-c="d2"]{--dc:#2c6f9a;--dcd:#143a55}
+  .day[data-c="d3"]{--dc:#b8893d;--dcd:#6e4e1a}
+  .day[data-c="d4"]{--dc:#4f7d53;--dcd:#27462b}
+  .day[data-c="d5"]{--dc:#bd6038;--dcd:#6e3119}
   .daycard{background:var(--paper);border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);overflow:hidden;position:relative}
   .day.istoday .daycard{border:2px solid var(--gold);box-shadow:0 18px 50px -20px rgba(184,137,61,.45)}
   .todayribbon{display:none;position:absolute;top:0;right:26px;background:var(--gold);color:#241803;font-weight:800;font-size:.72rem;letter-spacing:.08em;padding:7px 13px 6px;border-radius:0 0 9px 9px;z-index:3}
   .day.istoday .todayribbon{display:block}
-  .daycard .hd{display:flex;align-items:center;gap:18px;padding:24px 26px 18px;background:linear-gradient(110deg,#0f2c27,#1a4d42);color:#f4efe2}
-  .daycard .hd .num{font-family:'Gowun Batang',serif;font-size:2.4rem;font-weight:700;color:var(--gold-soft);line-height:.9}
-  .daycard .hd .dd .d{font-size:.78rem;letter-spacing:.12em;color:#bac9bf;font-weight:600}
+  .daycard .hd{display:flex;align-items:center;gap:18px;padding:24px 26px 18px;background:linear-gradient(110deg,var(--dcd),var(--dc));color:#fdfaf2}
+  .daycard .hd .num{font-family:'Gowun Batang',serif;font-size:2.4rem;font-weight:700;color:#f3d9a0;line-height:.9}
+  .daycard .hd .dd .d{font-size:.78rem;letter-spacing:.12em;color:rgba(255,255,255,.75);font-weight:600}
   .daycard .hd .dd .t{font-size:1.22rem;font-weight:700;margin-top:3px}
-  /* 동선 요약 바 */
-  .route{display:flex;gap:6px;align-items:center;overflow-x:auto;padding:12px 26px;background:#0c241f;scrollbar-width:none}
+  .route{display:flex;gap:6px;align-items:center;overflow-x:auto;padding:12px 26px;background:var(--dcd);scrollbar-width:none}
   .route::-webkit-scrollbar{display:none}
-  .route span{flex:0 0 auto;font-size:.74rem;font-weight:600;color:#dfe8e0;background:rgba(255,255,255,.08);border:1px solid rgba(202,160,90,.25);padding:5px 11px;border-radius:30px;white-space:nowrap}
-  .route i{flex:0 0 auto;font-style:normal;color:var(--gold-soft);font-size:.72rem}
+  .route span{flex:0 0 auto;font-size:.74rem;font-weight:600;color:#f0ede2;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);padding:5px 11px;border-radius:30px;white-space:nowrap}
+  .route i{flex:0 0 auto;font-style:normal;color:#f3d9a0;font-size:.72rem}
   .timeline{padding:10px 26px 24px}
   .ev{display:flex;gap:15px;padding:17px 0;border-bottom:1px dashed var(--line)}
   .ev:last-child{border-bottom:none}
-  .ev .time{flex:0 0 56px;font-weight:800;color:var(--green-light);font-size:.84rem;padding-top:3px}
+  .ev .time{flex:0 0 56px;font-weight:800;color:var(--dc);font-size:.84rem;padding-top:3px}
   .ev .dot{flex:0 0 12px;position:relative}
-  .ev .dot::before{content:"";position:absolute;left:50%;top:8px;transform:translateX(-50%);width:10px;height:10px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px rgba(184,137,61,.16)}
+  .ev .dot::before{content:"";position:absolute;left:50%;top:8px;transform:translateX(-50%);width:10px;height:10px;border-radius:50%;background:var(--dc);box-shadow:0 0 0 4px rgba(0,0,0,.06)}
   .ev .dot::after{content:"";position:absolute;left:50%;top:18px;bottom:-17px;width:1.5px;transform:translateX(-50%);background:var(--line)}
   .ev:last-child .dot::after{display:none}
   .ev .ct{flex:1}
@@ -164,6 +176,12 @@
   .ev .ct .link{display:inline-flex;align-items:center;gap:5px;margin-top:10px;margin-right:7px;text-decoration:none;font-size:.78rem;font-weight:700;color:var(--green);background:var(--sand);padding:7px 12px;border-radius:9px;transition:.2s}
   .ev .ct .link:hover{background:var(--gold-soft);color:#2a1d06}
   .ev .ct .link.t{background:#e2efe8;color:var(--green-light)}
+  /* 하이라이트 이벤트 승격 */
+  .ev.hi{border-bottom:none;padding-bottom:8px}
+  .ev.hi .ct{background:linear-gradient(140deg,#fffdf6,#fbf3e0);border:1.5px solid var(--gold);border-radius:16px;padding:16px 18px;box-shadow:0 10px 28px -16px rgba(184,137,61,.5)}
+  .ev.hi .ct h4{font-size:1.14rem}
+  .ev.hi .ct h4 .st{display:inline-block;font-size:.64rem;background:var(--gold);color:#241803;padding:3px 9px;border-radius:30px;vertical-align:2px;margin-left:8px;font-weight:800;letter-spacing:.06em}
+  .ev.hi .dot::before{width:13px;height:13px;background:var(--gold);box-shadow:0 0 0 5px rgba(184,137,61,.22)}
   .tip{display:flex;gap:10px;margin-top:12px;background:#fbf3e2;border:1px solid #ecdcb8;border-left:4px solid var(--gold);border-radius:11px;padding:12px 14px;font-size:.84rem;color:#6e521b;line-height:1.6}
   .tip b{color:#85631f}
   .tip.heat{background:#fbeee6;border-color:#f0d3c2;border-left-color:var(--terra);color:#8a4a2c}
@@ -171,13 +189,18 @@
   .tip.opt{background:#e9f1ec;border-color:#cfe1d6;border-left-color:var(--green-light);color:#2c4d41}
   .tip.opt b{color:#1f5a4e}
 
-  /* 빅오쇼 카드 */
-  .bigo{margin-top:13px;background:linear-gradient(120deg,#131e4e,#2a3f8f);border-radius:15px;padding:18px 19px;color:#eef1ff;box-shadow:var(--shadow-sm)}
+  /* ===== 빅오쇼 밤 카드 ===== */
+  .bigo{margin-top:13px;position:relative;overflow:hidden;border-radius:16px;background:linear-gradient(165deg,#0a1230,#16265c);color:#eef1ff;box-shadow:var(--shadow-sm)}
+  .bigo .bgart{position:absolute;inset:0;width:100%;height:100%;opacity:.55}
+  .bigo .bin{position:relative;z-index:2;padding:18px 19px}
   .bigo .bt{font-weight:800;font-size:1rem;display:flex;align-items:center;gap:8px}
   .bigo .grid{display:grid;grid-template-columns:1fr 1fr;gap:9px 14px;margin-top:13px;font-size:.82rem}
   .bigo .grid div b{display:block;color:#aebcff;font-size:.7rem;font-weight:700;letter-spacing:.05em;margin-bottom:1px}
   .bigo .warn{margin-top:13px;font-size:.78rem;color:#cdd6ff;border-top:1px dashed rgba(255,255,255,.25);padding-top:11px;line-height:1.6}
   .bigo a.bk{display:inline-block;margin-top:12px;background:#fff;color:#1c2a6e;font-weight:800;font-size:.82rem;padding:9px 16px;border-radius:9px;text-decoration:none}
+  @keyframes jet{0%,100%{transform:scaleY(.82)}50%{transform:scaleY(1)}}
+  .bigo .j{transform-origin:bottom;animation:jet 5s ease-in-out infinite}
+  .bigo .j2{animation-delay:1.2s}.bigo .j3{animation-delay:2.4s}
 
   /* ===== FOOD ===== */
   .fgroup{margin-bottom:26px}
@@ -216,10 +239,12 @@
   .ccard .e{font-size:1.6rem;flex:0 0 auto}
   .ccard h4{font-size:.98rem;font-weight:700}.ccard p{font-size:.84rem;color:var(--ink-soft);margin-top:3px}
 
-  footer{background:var(--green-deep);color:#9fb3a8;text-align:center;padding:50px 24px}
+  /* ===== FOOTER — 여정 지도 ===== */
+  footer{background:var(--green-deep);color:#9fb3a8;text-align:center;padding:50px 24px 44px}
   footer .ft{font-family:'Gowun Batang',serif;font-size:1.5rem;color:#f4efe2;margin-bottom:10px}
   footer .fd{font-size:.88rem;letter-spacing:.04em}
-  footer .src{font-size:.72rem;color:#6b837a;margin-top:20px;line-height:1.7;max-width:580px;margin-left:auto;margin-right:auto}
+  .jmap{display:block;max-width:560px;width:100%;margin:26px auto 4px}
+  footer .src{font-size:.72rem;color:#6b837a;margin-top:18px;line-height:1.7;max-width:580px;margin-left:auto;margin-right:auto}
   footer a{color:var(--gold-soft);text-decoration:none}
 
   .reveal{opacity:0;transform:translateY(26px);transition:.75s cubic-bezier(.2,.7,.2,1)}
@@ -228,10 +253,9 @@
 </head>
 <body>
 
-<!-- TODAY BANNER (여행 기간 자동 표시) -->
+<div class="prog" id="prog"></div>
 <div class="todaybar" id="todaybar"></div>
 
-<!-- FONT SCALER -->
 <div class="fontctl" role="group" aria-label="글자 크기 조절">
   <span class="lab">글자 크기</span>
   <button id="fs1" class="on" onclick="setFS(1)" aria-label="기본 크기"><span class="a">가</span></button>
@@ -239,51 +263,119 @@
   <button id="fs3" onclick="setFS(3)" aria-label="아주 크게"><span class="c">가</span></button>
 </div>
 
-<!-- HERO -->
+<!-- HERO : 남해의 빛 -->
 <header class="hero">
-  <div class="grain"></div>
+  <svg class="sea" viewBox="0 0 1440 760" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+    <defs>
+      <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#0e2a25"/><stop offset="46%" stop-color="#174238"/>
+        <stop offset="72%" stop-color="#4f5e38"/><stop offset="92%" stop-color="#b98e44"/><stop offset="100%" stop-color="#d9ab5e"/>
+      </linearGradient>
+      <radialGradient id="sung" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#ffeec0" stop-opacity=".9"/><stop offset="55%" stop-color="#eebc62" stop-opacity=".35"/><stop offset="100%" stop-color="#eebc62" stop-opacity="0"/>
+      </radialGradient>
+      <linearGradient id="seag" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#c79a4e"/><stop offset="14%" stop-color="#5e6b40"/>
+        <stop offset="45%" stop-color="#1d4a3d"/><stop offset="100%" stop-color="#0e2823"/>
+      </linearGradient>
+      <linearGradient id="refl" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#f3d398" stop-opacity=".55"/><stop offset="100%" stop-color="#f3d398" stop-opacity="0"/>
+      </linearGradient>
+    </defs>
+    <rect width="1440" height="470" fill="url(#sky)"/>
+    <circle class="sunglow" cx="1020" cy="438" r="190" fill="url(#sung)"/>
+    <circle cx="1020" cy="442" r="52" fill="#ffe5a8"/>
+    <!-- 섬 실루엣 -->
+    <path d="M-20,470 Q140,400 320,452 Q420,478 540,470 L540,472 L-20,472 Z" fill="#10322b" opacity=".85"/>
+    <path d="M620,470 Q700,438 790,462 Q850,476 920,470 L920,472 L620,472 Z" fill="#143a31" opacity=".7"/>
+    <path d="M1180,470 Q1280,420 1460,458 L1460,472 L1180,472 Z" fill="#10322b" opacity=".8"/>
+    <!-- 바다 -->
+    <rect y="470" width="1440" height="290" fill="url(#seag)"/>
+    <rect x="940" y="472" width="160" height="180" fill="url(#refl)"/>
+    <!-- 윤슬 -->
+    <g fill="#f6dfa9">
+      <rect class="yun" x="965" y="492" width="74" height="4" rx="2"/>
+      <rect class="yun y2" x="990" y="516" width="96" height="4" rx="2"/>
+      <rect class="yun y3" x="950" y="544" width="70" height="4" rx="2"/>
+      <rect class="yun y4" x="1000" y="576" width="110" height="4" rx="2"/>
+      <rect class="yun y2" x="330" y="510" width="54" height="3" rx="1.5" opacity=".5"/>
+      <rect class="yun y4" x="560" y="552" width="64" height="3" rx="1.5" opacity=".5"/>
+      <rect class="yun y3" x="170" y="586" width="58" height="3" rx="1.5" opacity=".45"/>
+    </g>
+    <!-- 잔물결 -->
+    <g class="wgroup" opacity=".22" stroke="#e9d8ae" stroke-width="2" fill="none">
+      <path d="M-60,520 Q60,512 180,520 T420,520 T660,520 T900,520 T1140,520 T1380,520 T1560,520"/>
+      <path d="M-60,600 Q80,592 220,600 T500,600 T780,600 T1060,600 T1340,600 T1560,600" opacity=".7"/>
+    </g>
+  </svg>
   <div class="frameline"></div>
-  <div class="kicker">YEOSU · A HEALING JOURNEY</div>
-  <h1 class="serif">여수,<br>우리 여섯의<br><em>네 밤 다섯 날</em></h1>
-  <div class="dday" id="dday">🌿 <b>여수 여행</b></div>
-  <div class="rule"></div>
-  <p class="sub serif">2026 · 7 · 06 &nbsp;—&nbsp; 7 · 10</p>
-  <p class="quote serif">"천천히 걷고, 오래 바라보고, 깊이 쉬어가는 남해의 여름"</p>
-  <div class="meta">
-    <span class="pill">4박 5일</span><span class="pill">여섯 사람</span>
-    <span class="pill">라마다 · 베네치아</span><span class="pill">빅오쇼 · 루프탑풀</span>
+  <div class="ct2">
+    <div class="kicker">YEOSU · LIGHTS OF THE SOUTH SEA</div>
+    <h1 class="serif">여수,<br>우리 여섯의<br><em>네 밤 다섯 날</em></h1>
+    <div class="dday" id="dday">🌿 <b>여수 여행</b></div>
+    <div class="rule"></div>
+    <p class="sub serif">2026 · 7 · 06 &nbsp;—&nbsp; 7 · 10</p>
+    <p class="quote serif">"천천히 걷고, 오래 바라보고, 깊이 쉬어가는 남해의 여름"</p>
+    <div class="meta">
+      <span class="pill">4박 5일</span><span class="pill">여섯 사람</span>
+      <span class="pill">라마다 · 베네치아</span><span class="pill">빅오쇼 · 루프탑풀</span>
+    </div>
   </div>
   <div class="wave"><svg viewBox="0 0 1440 64" preserveAspectRatio="none"><path fill="#FBF8F1" d="M0,36 C240,68 480,4 720,28 C960,52 1200,6 1440,32 L1440,64 L0,64 Z"></path></svg></div>
 </header>
 
 <!-- DAY NAV -->
 <nav class="daynav">
-  <div class="row">
-    <a href="#highlights">미리보기</a>
-    <a href="#pools">수영장</a>
-    <a href="#hotels">호텔</a>
-    <a href="#d1" data-day="1"><b>7/6</b> 월</a><a href="#d2" data-day="2"><b>7/7</b> 화</a><a href="#d3" data-day="3"><b>7/8</b> 수</a>
-    <a href="#d4" data-day="4"><b>7/9</b> 목</a><a href="#d5" data-day="5"><b>7/10</b> 금</a>
-    <a href="#food">맛집</a><a href="#video">영상</a>
+  <div class="row" id="navrow">
+    <a href="#highlights" data-sec="highlights">미리보기</a>
+    <a href="#pools" data-sec="pools">수영장</a>
+    <a href="#hotels" data-sec="hotels">호텔</a>
+    <a href="#d1" data-sec="d1" data-day="1"><b>7/6</b> 월</a><a href="#d2" data-sec="d2" data-day="2"><b>7/7</b> 화</a><a href="#d3" data-sec="d3" data-day="3"><b>7/8</b> 수</a>
+    <a href="#d4" data-sec="d4" data-day="4"><b>7/9</b> 목</a><a href="#d5" data-sec="d5" data-day="5"><b>7/10</b> 금</a>
+    <a href="#food" data-sec="food">맛집</a><a href="#video" data-sec="video">영상</a>
   </div>
 </nav>
 
-<!-- HIGHLIGHTS -->
+<!-- HIGHLIGHTS : 풍경 엽서 -->
 <section class="hl" id="highlights">
   <div class="wrap reveal">
     <div class="shead">
       <div class="no serif">01 — Preview</div>
       <h2 class="serif">여수, 미리 그려보는 풍경</h2>
-      <p>이번 여정에서 만나게 될 여섯 장면. 무리 없이, 가장 아름다운 시간에 담았습니다.</p>
+      <p>이번 여정에서 만나게 될 여섯 장면을 작은 그림으로 담았습니다.</p>
       <div class="ln"></div>
     </div>
     <div class="hlgrid">
-      <a class="hlcard hl1" href="https://map.naver.com/p/search/여수 오동도" target="_blank" rel="noopener"><span class="em">🌳</span><h4>오동도</h4><p>동백·대나무 숲길 산책 (7/6)</p></a>
-      <a class="hlcard hl2" href="https://map.naver.com/p/search/여수 향일암" target="_blank" rel="noopener"><span class="em">🌅</span><h4>향일암</h4><p>남해 절경의 해돋이 암자 (7/8)</p></a>
-      <a class="hlcard hl3" href="https://map.naver.com/p/search/여수세계박람회장 빅오쇼" target="_blank" rel="noopener"><span class="em">⛲</span><h4>빅오 해상분수쇼</h4><p>여수 밤바다 위 빛의 향연 (7/8)</p></a>
-      <a class="hlcard hl4" href="https://map.naver.com/p/search/순천만습지" target="_blank" rel="noopener"><span class="em">🌾</span><h4>순천만</h4><p>드넓은 갈대밭과 갯벌 (7/9)</p></a>
-      <a class="hlcard hl5" href="https://map.naver.com/p/search/여수 백리섬섬길" target="_blank" rel="noopener"><span class="em">🌉</span><h4>백리섬섬길</h4><p>여수–고흥 연륙교 드라이브 (7/7)</p></a>
-      <a class="hlcard hl6" href="https://map.naver.com/p/search/여수 남산공원" target="_blank" rel="noopener"><span class="em">🌃</span><h4>남산공원 야경</h4><p>밤의 오션뷰 (7/6)</p></a>
+      <!-- 오동도 -->
+      <a class="hlcard" href="https://map.naver.com/p/search/여수 오동도" target="_blank" rel="noopener">
+        <svg class="art" viewBox="0 0 320 170" aria-hidden="true"><rect width="320" height="170" fill="#bcd8cd"/><rect y="118" width="320" height="52" fill="#7fb3a0"/><ellipse cx="100" cy="142" rx="130" ry="58" fill="#2f6b4f"/><ellipse cx="240" cy="152" rx="120" ry="52" fill="#225239"/><circle cx="60" cy="120" r="4.5" fill="#c4373c"/><circle cx="105" cy="108" r="4" fill="#c4373c"/><circle cx="150" cy="124" r="4.5" fill="#c4373c"/><circle cx="210" cy="132" r="4" fill="#c4373c"/><circle cx="262" cy="120" r="4.5" fill="#c4373c"/><rect x="278" y="74" width="12" height="40" fill="#f6f1e4"/><rect x="276" y="66" width="16" height="10" rx="2" fill="#c4373c"/></svg>
+        <div class="cap2"><h4>오동도 🌳</h4><p>동백·대나무 숲길 산책 (7/6)</p></div>
+      </a>
+      <!-- 향일암 -->
+      <a class="hlcard" href="https://map.naver.com/p/search/여수 향일암" target="_blank" rel="noopener">
+        <svg class="art" viewBox="0 0 320 170" aria-hidden="true"><defs><linearGradient id="hsky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#3d3a63"/><stop offset="60%" stop-color="#c97f4a"/><stop offset="100%" stop-color="#f2c270"/></linearGradient></defs><rect width="320" height="110" fill="url(#hsky)"/><circle cx="208" cy="108" r="26" fill="#ffe2a0"/><rect y="110" width="320" height="60" fill="#5e4a3a"/><rect y="110" width="320" height="60" fill="#2c4a55" opacity=".55"/><rect x="186" y="112" width="44" height="40" fill="#f3cd8d" opacity=".4"/><path d="M0,170 L0,58 Q40,52 66,72 Q96,96 104,170 Z" fill="#241d18"/><path d="M52,76 Q66,64 80,76 L76,84 L56,84 Z" fill="#3a2c22"/><path d="M50,77 Q66,60 82,77" stroke="#1a130e" stroke-width="4" fill="none"/></svg>
+        <div class="cap2"><h4>향일암 🌅</h4><p>남해 절경의 해돋이 암자 (7/8)</p></div>
+      </a>
+      <!-- 빅오쇼 -->
+      <a class="hlcard" href="https://map.naver.com/p/search/여수세계박람회장 빅오쇼" target="_blank" rel="noopener">
+        <svg class="art" viewBox="0 0 320 170" aria-hidden="true"><rect width="320" height="170" fill="#0c1430"/><circle cx="48" cy="30" r="1.6" fill="#fff" opacity=".8"/><circle cx="120" cy="20" r="1.3" fill="#fff" opacity=".6"/><circle cx="262" cy="34" r="1.6" fill="#fff" opacity=".75"/><circle cx="296" cy="64" r="1.2" fill="#fff" opacity=".5"/><circle cx="160" cy="88" r="42" fill="none" stroke="#8fd0ff" stroke-width="6"/><circle cx="160" cy="88" r="42" fill="none" stroke="#fff" stroke-width="1.5" opacity=".5"/><g fill="#9fd9ff" opacity=".9"><rect x="92" y="96" width="4" height="44" rx="2"/><rect x="118" y="84" width="4" height="56" rx="2"/><rect x="198" y="84" width="4" height="56" rx="2"/><rect x="224" y="96" width="4" height="44" rx="2"/></g><rect y="140" width="320" height="30" fill="#101e44"/><rect x="120" y="146" width="80" height="3" rx="1.5" fill="#8fd0ff" opacity=".45"/></svg>
+        <div class="cap2"><h4>빅오 해상분수쇼 ⛲</h4><p>여수 밤바다 빛의 향연 · 무료 (7/8)</p></div>
+      </a>
+      <!-- 순천만 -->
+      <a class="hlcard" href="https://map.naver.com/p/search/순천만습지" target="_blank" rel="noopener">
+        <svg class="art" viewBox="0 0 320 170" aria-hidden="true"><defs><linearGradient id="ssky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f0d9a8"/><stop offset="100%" stop-color="#dba45e"/></linearGradient></defs><rect width="320" height="92" fill="url(#ssky)"/><circle cx="250" cy="56" r="20" fill="#fff0c8"/><rect y="92" width="320" height="78" fill="#b78b3f"/><path d="M0,108 Q90,96 150,116 Q210,136 320,118 L320,132 Q200,150 130,128 Q70,112 0,124 Z" fill="#e8d3a0"/><g stroke="#7c5a22" stroke-width="2.5" fill="none"><path d="M40,150 Q42,120 38,104"/><path d="M66,154 Q70,126 64,108"/><path d="M92,150 Q96,124 92,110"/><path d="M250,156 Q254,130 248,116"/><path d="M278,152 Q282,128 276,112"/></g><g fill="#8a6526"><ellipse cx="38" cy="101" rx="4" ry="9"/><ellipse cx="64" cy="105" rx="4" ry="9"/><ellipse cx="92" cy="107" rx="4" ry="9"/><ellipse cx="248" cy="113" rx="4" ry="9"/><ellipse cx="276" cy="109" rx="4" ry="9"/></g></svg>
+        <div class="cap2"><h4>순천만 🌾</h4><p>드넓은 갈대밭과 갯벌 (7/9)</p></div>
+      </a>
+      <!-- 백리섬섬길 -->
+      <a class="hlcard" href="https://map.naver.com/p/search/여수 백리섬섬길" target="_blank" rel="noopener">
+        <svg class="art" viewBox="0 0 320 170" aria-hidden="true"><rect width="320" height="170" fill="#cfe3ea"/><rect y="112" width="320" height="58" fill="#5d96ab"/><ellipse cx="36" cy="120" rx="78" ry="34" fill="#2f6b54"/><ellipse cx="292" cy="124" rx="80" ry="36" fill="#2a5e49"/><path d="M60,96 Q160,52 264,98" stroke="#e8ebee" stroke-width="7" fill="none"/><g stroke="#e8ebee" stroke-width="2.4"><line x1="100" y1="82" x2="100" y2="112"/><line x1="140" y1="70" x2="140" y2="112"/><line x1="180" y1="69" x2="180" y2="112"/><line x1="220" y1="80" x2="220" y2="112"/></g><rect x="58" y="110" width="210" height="6" rx="3" fill="#f3f4f2"/></svg>
+        <div class="cap2"><h4>백리섬섬길 🌉</h4><p>여수–고흥 연륙교 드라이브 (7/7)</p></div>
+      </a>
+      <!-- 남산공원 야경 -->
+      <a class="hlcard" href="https://map.naver.com/p/search/여수 남산공원" target="_blank" rel="noopener">
+        <svg class="art" viewBox="0 0 320 170" aria-hidden="true"><rect width="320" height="170" fill="#101a2e"/><circle cx="262" cy="36" r="15" fill="#f3e3b0"/><circle cx="256" cy="32" r="13" fill="#101a2e"/><circle cx="60" cy="26" r="1.4" fill="#fff" opacity=".7"/><circle cx="140" cy="40" r="1.2" fill="#fff" opacity=".55"/><rect y="118" width="320" height="52" fill="#0a1322"/><path d="M30,92 Q160,58 290,92" stroke="#f2b65a" stroke-width="3.5" fill="none"/><g fill="#ffd98c"><circle cx="70" cy="84" r="2.4"/><circle cx="120" cy="73" r="2.4"/><circle cx="160" cy="69" r="2.4"/><circle cx="200" cy="73" r="2.4"/><circle cx="250" cy="84" r="2.4"/></g><line x1="80" y1="86" x2="80" y2="118" stroke="#3a4a63" stroke-width="3"/><line x1="240" y1="86" x2="240" y2="118" stroke="#3a4a63" stroke-width="3"/><g fill="#f2b65a" opacity=".55"><rect x="66" y="128" width="10" height="2.6" rx="1.3"/><rect x="116" y="136" width="12" height="2.6" rx="1.3"/><rect x="196" y="130" width="10" height="2.6" rx="1.3"/><rect x="246" y="140" width="12" height="2.6" rx="1.3"/></g></svg>
+        <div class="cap2"><h4>남산공원 야경 🌃</h4><p>밤의 오션뷰 (7/6)</p></div>
+      </a>
     </div>
   </div>
 </section>
@@ -372,12 +464,12 @@
     <div class="shead reveal">
       <div class="no serif">04 — Day by Day</div>
       <h2 class="serif">하루하루, 무리 없이</h2>
-      <p>7월 더위와 연세를 고려해 야외는 오전·해질녘에, 한낮은 실내·카페·드라이브로 배치했습니다.</p>
+      <p>7월 더위와 연세를 고려해 야외는 오전·해질녘에, 한낮은 실내·카페·드라이브로 배치했습니다. 날마다 그날의 색을 입혔습니다.</p>
       <div class="ln"></div>
     </div>
 
-    <!-- DAY 1 -->
-    <div class="day reveal" id="d1">
+    <!-- DAY 1 : 새벽 청록 -->
+    <div class="day reveal" id="d1" data-c="d1">
       <div class="daycard">
         <div class="todayribbon">TODAY · 오늘 일정</div>
         <div class="hd"><div class="num serif">1</div><div class="dd"><div class="d">7월 6일 · 월요일</div><div class="t serif">만남, 오동도, 그리고 밤의 오션뷰</div></div></div>
@@ -388,7 +480,7 @@
           <div class="ev"><div class="time">14:30</div><div class="dot"></div><div class="ct"><h4>라마다 호텔 체크인 · 휴식</h4><p>짐 정리 후 잠시 휴식</p>
             <div class="tip opt"><span>🏊</span><div><b>자유 옵션:</b> 인피니티풀(5F)이 14~19시 운영 중 — 가장 더운 시간, 시원하게 몸 풀고 싶으신 분은 자유롭게.</div></div>
           </div></div>
-          <div class="ev"><div class="time">16:30</div><div class="dot"></div><div class="ct"><h4>오동도 산책</h4><p>동백나무 터널과 대나무숲 — 힘들면 동백열차 이용, 그늘 많아 늦은 오후에 좋습니다</p><a class="link" href="https://map.naver.com/p/search/여수 오동도" target="_blank" rel="noopener">📍 오동도</a><a class="link t" href="https://map.naver.com/p/search/오동도 동백열차" target="_blank" rel="noopener">🚂 동백열차</a></div></div>
+          <div class="ev hi"><div class="time">16:30</div><div class="dot"></div><div class="ct"><h4>오동도 산책 <span class="st">오늘의 백미</span></h4><p>동백나무 터널과 대나무숲 — 힘들면 동백열차 이용, 그늘 많아 늦은 오후에 좋습니다</p><a class="link" href="https://map.naver.com/p/search/여수 오동도" target="_blank" rel="noopener">📍 오동도</a><a class="link t" href="https://map.naver.com/p/search/오동도 동백열차" target="_blank" rel="noopener">🚂 동백열차</a></div></div>
           <div class="ev"><div class="time">18:30</div><div class="dot"></div><div class="ct"><h4>저녁식사 — 봉산동 게장골목</h4><p>여수 10미의 으뜸, 게장백반·생선구이로 든든하게</p><a class="link" href="https://map.naver.com/p/search/여수 늘푸른식당" target="_blank" rel="noopener">📍 늘푸른식당</a><a class="link" href="https://map.naver.com/p/search/여수 두꺼비게장" target="_blank" rel="noopener">📍 두꺼비게장</a></div></div>
           <div class="ev"><div class="time">20:00</div><div class="dot"></div><div class="ct"><h4>남산공원 나이트 오션뷰</h4><p>시원해진 밤, 돌산대교·거북선대교와 여수 바다의 불빛을 한눈에</p><a class="link t" href="https://map.naver.com/p/search/여수 남산공원" target="_blank" rel="noopener">📍 남산공원</a></div></div>
           <div class="ev"><div class="time">21:30</div><div class="dot"></div><div class="ct"><h4>호텔 귀가 · 휴식</h4><p>첫날은 일찍, 푹 쉬어갑니다</p></div></div>
@@ -396,8 +488,8 @@
       </div>
     </div>
 
-    <!-- DAY 2 -->
-    <div class="day reveal" id="d2">
+    <!-- DAY 2 : 바다 블루 -->
+    <div class="day reveal" id="d2" data-c="d2">
       <div class="daycard">
         <div class="todayribbon">TODAY · 오늘 일정</div>
         <div class="hd"><div class="num serif">2</div><div class="dd"><div class="d">7월 7일 · 화요일</div><div class="t serif">예술의 섬과 백리섬섬길, 낭도</div></div></div>
@@ -407,7 +499,7 @@
           <div class="ev"><div class="time">11:30</div><div class="dot"></div><div class="ct"><h4>예술의 섬, 장도 산책 + 점심</h4><p>바다 위 예술섬을 천천히 거닐기 (둘레길 30분~1시간, 평탄)</p><a class="link" href="https://map.naver.com/p/search/여수 예술의섬 장도" target="_blank" rel="noopener">📍 장도</a>
             <div class="tip"><span>🌊</span><div><b>물때 확인:</b> 장도 진섬다리는 <b>썰물 때만</b> 열립니다. 방문 전 통행 시간을 꼭 확인하세요. 안 맞으면 인근 <b>이순신광장·웅천친수공원</b>으로 대체 가능.</div></div>
           </div></div>
-          <div class="ev"><div class="time">14:00</div><div class="dot"></div><div class="ct"><h4>여수–고흥 백리섬섬길 드라이브</h4><p>에어컨 켜고 시원하게 — 화양면→적금도→둔병도→낭도로 이어지는 연륙·연도교</p><a class="link t" href="https://map.naver.com/p/search/여수 백리섬섬길" target="_blank" rel="noopener">📍 백리섬섬길</a></div></div>
+          <div class="ev hi"><div class="time">14:00</div><div class="dot"></div><div class="ct"><h4>여수–고흥 백리섬섬길 드라이브 <span class="st">오늘의 백미</span></h4><p>에어컨 켜고 시원하게 — 화양면→적금도→둔병도→낭도로 이어지는 연륙·연도교</p><a class="link t" href="https://map.naver.com/p/search/여수 백리섬섬길" target="_blank" rel="noopener">📍 백리섬섬길</a></div></div>
           <div class="ev"><div class="time">15:30</div><div class="dot"></div><div class="ct"><h4>낭만낭도 섬둘레1길 산책</h4><p>낭도 해안 둘레길을 가볍게 — 더우면 짧게 걷고 낭도 카페·낭도막걸리로 휴식</p><a class="link" href="https://map.naver.com/p/search/낭도 섬둘레길" target="_blank" rel="noopener">📍 낭도 둘레길</a><a class="link t" href="https://map.naver.com/p/search/낭도 카페" target="_blank" rel="noopener">☕ 낭도 카페</a>
             <div class="tip heat"><span>🌡️</span><div><b>한낮 시간대입니다:</b> 그늘이 적은 구간은 무리 말고 <b>전망 좋은 포인트까지만</b> — 모자·양산·물 꼭 챙기세요.</div></div>
           </div></div>
@@ -417,8 +509,8 @@
       </div>
     </div>
 
-    <!-- DAY 3 -->
-    <div class="day reveal" id="d3">
+    <!-- DAY 3 : 일출 골드 -->
+    <div class="day reveal" id="d3" data-c="d3">
       <div class="daycard">
         <div class="todayribbon">TODAY · 오늘 일정</div>
         <div class="hd"><div class="num serif">3</div><div class="dd"><div class="d">7월 8일 · 수요일</div><div class="t serif">향일암, 모이핀, 그리고 빅오쇼의 밤</div></div></div>
@@ -433,17 +525,31 @@
           <div class="ev"><div class="time">14:30</div><div class="dot"></div><div class="ct"><h4>모이핀 스카이점 — 리프레시</h4><p>남해 바다가 통유리로 펼쳐지는 돌산 대형 오션뷰 카페 — 한낮 더위를 시원하게</p><a class="link" href="https://map.naver.com/p/search/여수 모이핀 스카이점" target="_blank" rel="noopener">📍 모이핀 스카이</a></div></div>
           <div class="ev"><div class="time">17:30</div><div class="dot"></div><div class="ct"><h4>베네치아 호텔 체크인</h4><p>오션뷰 객실에서 짐 풀고 잠시 휴식</p></div></div>
           <div class="ev"><div class="time">18:30</div><div class="dot"></div><div class="ct"><h4>저녁식사</h4><p>호텔 인근(엑스포·종포)에서 편안하게</p></div></div>
-          <div class="ev"><div class="time">19:30</div><div class="dot"></div><div class="ct"><h4>⛲ 빅오 해상분수쇼 (엑스포)</h4><p>베네치아 도보권 — 19:30 이동·입장하면 여유롭습니다</p>
+          <div class="ev hi"><div class="time">19:30</div><div class="dot"></div><div class="ct"><h4>⛲ 빅오 해상분수쇼 <span class="st">오늘의 백미</span></h4><p>베네치아 도보권 — 19:30 이동·입장하면 여유롭습니다</p>
             <div class="bigo">
-              <div class="bt">⛲ 빅오 해상분수쇼 — 7월 공연 안내</div>
-              <div class="grid">
-                <div><b>공연 시작</b>20:00 (7월 기준)</div>
-                <div><b>공연 시간</b>약 30분</div>
-                <div><b>운영일</b>수~일 (월·화 휴장) · 7/8 수 ✔</div>
-                <div><b>입장료</b>🎉 무료 — 예매 불필요</div>
+              <svg class="bgart" viewBox="0 0 600 220" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                <circle cx="70" cy="34" r="1.7" fill="#fff" opacity=".7"/><circle cx="180" cy="20" r="1.3" fill="#fff" opacity=".5"/><circle cx="430" cy="28" r="1.7" fill="#fff" opacity=".65"/><circle cx="540" cy="50" r="1.3" fill="#fff" opacity=".5"/>
+                <circle cx="300" cy="120" r="56" fill="none" stroke="#8fd0ff" stroke-width="7" opacity=".85"/>
+                <g fill="#9fd9ff" opacity=".8">
+                  <rect class="j" x="206" y="120" width="5" height="76" rx="2.5"/>
+                  <rect class="j j2" x="246" y="100" width="5" height="96" rx="2.5"/>
+                  <rect class="j j3" x="350" y="100" width="5" height="96" rx="2.5"/>
+                  <rect class="j j2" x="390" y="120" width="5" height="76" rx="2.5"/>
+                </g>
+                <rect y="196" width="600" height="24" fill="#0b1838"/>
+                <rect x="240" y="204" width="120" height="3.5" rx="1.7" fill="#8fd0ff" opacity=".4"/>
+              </svg>
+              <div class="bin">
+                <div class="bt">⛲ 빅오 해상분수쇼 — 7월 공연 안내</div>
+                <div class="grid">
+                  <div><b>공연 시작</b>20:00 (7월 기준)</div>
+                  <div><b>공연 시간</b>약 30분</div>
+                  <div><b>운영일</b>수~일 (월·화 휴장) · 7/8 수 ✔</div>
+                  <div><b>입장료</b>🎉 무료 — 예매 불필요</div>
+                </div>
+                <div class="warn">※ 현장 입장, 예약 없이 누구나 무료 관람 가능 · 우천·강풍 시 취소될 수 있으니 당일 홈페이지 확인 권장</div>
+                <a class="bk" href="https://www.expo2012.kr" target="_blank" rel="noopener">🌐 여수엑스포 공식 홈페이지</a>
               </div>
-              <div class="warn">※ 현장 입장, 예약 없이 누구나 무료 관람 가능 · 우천·강풍 시 취소될 수 있으니 당일 홈페이지 확인 권장</div>
-              <a class="bk" href="https://www.expo2012.kr" target="_blank" rel="noopener">🌐 여수엑스포 공식 홈페이지</a>
             </div>
           </div></div>
           <div class="ev"><div class="time">21:30</div><div class="dot"></div><div class="ct"><h4>호텔 휴식</h4><p>걸어서 돌아와 편안한 밤</p></div></div>
@@ -451,8 +557,8 @@
       </div>
     </div>
 
-    <!-- DAY 4 -->
-    <div class="day reveal" id="d4">
+    <!-- DAY 4 : 갈대 그린 -->
+    <div class="day reveal" id="d4" data-c="d4">
       <div class="daycard">
         <div class="todayribbon">TODAY · 오늘 일정</div>
         <div class="hd"><div class="num serif">4</div><div class="dd"><div class="d">7월 9일 · 목요일</div><div class="t serif">순천만, 숲의 쉼, 루프탑의 일몰</div></div></div>
@@ -465,15 +571,15 @@
           <div class="ev"><div class="time">12:30</div><div class="dot"></div><div class="ct"><h4>점심 — 짱뚱어탕</h4><p>순천만 갯벌 별미, 뼈를 곱게 갈아 끓인 구수한 보양탕</p><a class="link" href="https://map.naver.com/p/search/순천만가든" target="_blank" rel="noopener">📍 순천만가든</a><a class="link" href="https://map.naver.com/p/search/대대선창집" target="_blank" rel="noopener">📍 대대선창집</a></div></div>
           <div class="ev"><div class="time">14:30</div><div class="dot"></div><div class="ct"><h4>미평산림욕장 산책</h4><p>여수로 돌아와 숲그늘 산책 — 편백·소나무 숲길이라 한낮에도 시원하고 평탄합니다</p><a class="link" href="https://map.naver.com/p/search/여수 미평산림욕장" target="_blank" rel="noopener">📍 미평산림욕장</a></div></div>
           <div class="ev"><div class="time">17:00</div><div class="dot"></div><div class="ct"><h4>호텔 복귀 · 간편 저녁</h4><p>수영 전 가볍게 — 식후 잠시 쉬었다 입수</p></div></div>
-          <div class="ev"><div class="time">17:30</div><div class="dot"></div><div class="ct"><h4>🏙️ 루프탑풀 2부 (18F)</h4><p>대표님이 기다린 그 풀 — 17:30~20:00, 3면 오션뷰와 일몰 / 성인 15,000원</p>
+          <div class="ev hi"><div class="time">17:30</div><div class="dot"></div><div class="ct"><h4>🏙️ 루프탑풀 2부 (18F) <span class="st">오늘의 백미</span></h4><p>대표님이 기다린 그 풀 — 17:30~20:00, 3면 오션뷰와 일몰 / 성인 15,000원</p>
             <div class="tip"><span>🌅</span><div>18층 일몰(7월 약 19:40)이 절경입니다. 수영보다 <b>물에 잠겨 노을 바라보기</b> — 이 여행의 하이라이트.</div></div>
           </div></div>
         </div>
       </div>
     </div>
 
-    <!-- DAY 5 -->
-    <div class="day reveal" id="d5">
+    <!-- DAY 5 : 노을 테라코타 -->
+    <div class="day reveal" id="d5" data-c="d5">
       <div class="daycard">
         <div class="todayribbon">TODAY · 오늘 일정</div>
         <div class="hd"><div class="num serif">5</div><div class="dd"><div class="d">7월 10일 · 금요일</div><div class="t serif">조식, 광양불고기, 따뜻한 작별</div></div></div>
@@ -481,7 +587,7 @@
         <div class="timeline">
           <div class="ev"><div class="time">08:00</div><div class="dot"></div><div class="ct"><h4>베네치아 조식뷔페 (피렌체)</h4><p>3면 오션뷰와 함께 여유로운 마지막 아침 — 예약 조식</p></div></div>
           <div class="ev"><div class="time">11:00</div><div class="dot"></div><div class="ct"><h4>체크아웃 → 광양 이동</h4><p>이순신대교를 건너 광양으로 (귀로 방향, 약 40분)</p></div></div>
-          <div class="ev"><div class="time">12:00</div><div class="dot"></div><div class="ct"><h4>광양불고기 특화거리 점심</h4><p>참숯·구리석쇠에 구운 향토 별미 광양불고기로 마지막 식사</p><a class="link" href="https://map.naver.com/p/search/삼대광양불고기집" target="_blank" rel="noopener">📍 삼대광양불고기집</a><a class="link" href="https://map.naver.com/p/search/금정광양불고기" target="_blank" rel="noopener">📍 금정광양불고기</a></div></div>
+          <div class="ev hi"><div class="time">12:00</div><div class="dot"></div><div class="ct"><h4>광양불고기 특화거리 점심 <span class="st">오늘의 백미</span></h4><p>참숯·구리석쇠에 구운 향토 별미 광양불고기로 마지막 식사</p><a class="link" href="https://map.naver.com/p/search/삼대광양불고기집" target="_blank" rel="noopener">📍 삼대광양불고기집</a><a class="link" href="https://map.naver.com/p/search/금정광양불고기" target="_blank" rel="noopener">📍 금정광양불고기</a></div></div>
           <div class="ev"><div class="time">13:30</div><div class="dot"></div><div class="ct"><h4>아덴플러스 카페 환담</h4><p>이순신대교가 한눈에 보이는 대형 뷰 카페 — 1층 경사로 있어 편안하게, 여행 이야기 나누며</p><a class="link" href="https://map.naver.com/p/search/광양 아덴플러스" target="_blank" rel="noopener">📍 아덴플러스</a></div></div>
           <div class="ev"><div class="time">15:00</div><div class="dot"></div><div class="ct"><h4>따뜻한 작별</h4><p>광양에서 해산 — 원주·진주 각자 안전 귀가, 다음 여행을 기약하며 🌿</p></div></div>
         </div>
@@ -500,7 +606,6 @@
       <p>연세 드신 분들도 부담 없는 향토 맛집으로.</p>
       <div class="ln"></div>
     </div>
-
     <div class="fgroup">
       <div class="gt">여수 · 돌산 <span>게장 · 갈치조림 (7/6 저녁 · 7/8 점심)</span></div>
       <div class="rgrid">
@@ -510,7 +615,6 @@
         <div class="rcard"><div class="em">☕</div><h4>모이핀 스카이점</h4><div class="desc">돌산 대형 오션뷰 카페. 통유리 남해 전망, 무료주차 (7/8 오후).</div><div class="info">매일 09:00–20:00 (L.O 19:30)</div><div class="rbtns"><a class="m" href="https://map.naver.com/p/search/여수 모이핀 스카이점" target="_blank" rel="noopener">지도</a><a class="c" href="https://map.naver.com/p/search/여수 모이핀" target="_blank" rel="noopener">더보기</a></div></div>
       </div>
     </div>
-
     <div class="fgroup">
       <div class="gt">순천만 <span>갯벌 별미 (7/9 점심)</span></div>
       <div class="rgrid">
@@ -518,7 +622,6 @@
         <div class="rcard"><div class="em">🐠</div><h4>대대선창집</h4><div class="desc">짱뚱어탕·장어. 순천만 앞 대표 노포, 진한 국물.</div><div class="info">순천만생태공원 앞</div><div class="rbtns"><a class="m" href="https://map.naver.com/p/search/대대선창집" target="_blank" rel="noopener">지도</a><a class="c" href="tel:0617413157">전화</a></div></div>
       </div>
     </div>
-
     <div class="fgroup">
       <div class="gt">광양 <span>참숯 향토 별미 · 뷰 카페 (7/10)</span></div>
       <div class="rgrid">
@@ -563,16 +666,30 @@
     <div class="cgrid">
       <div class="ccard"><div class="e">🌡️</div><div><h4>한낮은 쉬어가기</h4><p>11–16시 폭염엔 실내·카페·드라이브로. 야외는 오전과 해질녘에.</p></div></div>
       <div class="ccard"><div class="e">⛰️</div><div><h4>향일암 계단 주의</h4><p>가파른 오르막 — 천천히, 쉼터마다 쉬며. 힘들면 중간까지만.</p></div></div>
-      <div class="ccard"><div class="e">🎫</div><div><h4>빅오쇼 사전 예매</h4><p>6명 좌석 확보 — 당일 16시 온라인 마감, 20:10 시작(7월).</p></div></div>
+      <div class="ccard"><div class="e">⛲</div><div><h4>빅오쇼는 무료</h4><p>예매 불필요, 20시 시작(7월) — 우천·강풍 시 취소 여부만 당일 확인.</p></div></div>
       <div class="ccard"><div class="e">📞</div><div><h4>당일 확인 습관</h4><p>장도 물때·순천만 운영시간은 변동 가능 — 전화 한 통이면 안심.</p></div></div>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- FOOTER : 여정 지도 -->
 <footer>
   <div class="ft serif">여수에서, 우리 여섯</div>
   <div class="fd">2026 · 07 · 06 — 07 · 10 &nbsp;|&nbsp; 4박 5일 힐링여행</div>
+  <svg class="jmap" viewBox="0 0 640 130" aria-hidden="true">
+    <defs><marker id="arr" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#caa05a"/></marker></defs>
+    <path d="M70,38 Q140,46 196,62" stroke="#caa05a" stroke-width="2" stroke-dasharray="3 6" fill="none"/>
+    <path d="M70,96 Q140,88 196,70" stroke="#caa05a" stroke-width="2" stroke-dasharray="3 6" fill="none"/>
+    <path d="M206,66 Q300,72 384,66" stroke="#caa05a" stroke-width="2" stroke-dasharray="3 6" fill="none"/>
+    <path d="M396,64 Q480,52 552,46" stroke="#caa05a" stroke-width="2" stroke-dasharray="3 6" fill="none" marker-end="url(#arr)"/>
+    <g font-family="Pretendard, sans-serif" font-size="12.5" fill="#cdd9d1" font-weight="600" text-anchor="middle">
+      <circle cx="62" cy="36" r="5" fill="#caa05a"/><text x="62" y="22">원주</text>
+      <circle cx="62" cy="98" r="5" fill="#caa05a"/><text x="62" y="120">진주</text>
+      <circle cx="201" cy="66" r="5" fill="#caa05a"/><text x="201" y="90">섬진강</text>
+      <circle cx="390" cy="65" r="7" fill="#f3d9a0"/><text x="390" y="92" fill="#f3d9a0" font-weight="800">여수 · 4박</text>
+      <circle cx="560" cy="45" r="5" fill="#caa05a"/><text x="560" y="28">광양</text>
+    </g>
+  </svg>
   <div class="src">
     수영장·빅오쇼·맛집 정보는 각 공식 홈페이지 및 네이버·구글 지도를 바탕으로 정리했습니다(2026년 6월 기준). 운영시간·요금은 계절·기상에 따라 변동될 수 있으니 방문 전 확인을 권합니다.<br>
     공식: <a href="http://www.ramadaplazadolsanyeosu.com" target="_blank" rel="noopener">라마다플라자</a> · <a href="https://www.yeosuvenezia.com" target="_blank" rel="noopener">베네치아</a> · <a href="https://www.expo2012.kr" target="_blank" rel="noopener">여수엑스포(빅오쇼)</a>
@@ -591,7 +708,7 @@
   }
   (function(){var lv=1;try{var s=localStorage.getItem('yeosu_fs');if(s)lv=parseInt(s,10)||1;}catch(e){}setFS(lv);})();
 
-  // ---- D-Day 카운터 + 오늘 모드 ----
+  // ---- D-Day + 오늘 모드 ----
   (function(){
     var days=[{n:1,d:'2026-07-06'},{n:2,d:'2026-07-07'},{n:3,d:'2026-07-08'},{n:4,d:'2026-07-09'},{n:5,d:'2026-07-10'}];
     var now=new Date();
@@ -601,17 +718,17 @@
     var dd=document.getElementById('dday'), bar=document.getElementById('todaybar');
     var cur=null;
     for(var i=0;i<days.length;i++){if(days[i].d===todayStr){cur=days[i];break;}}
-    if(cur){ // 여행 중
+    if(cur){
       dd.innerHTML='🌿 <b>여행 '+cur.n+'일차</b> · 오늘도 천천히';
       bar.innerHTML='☀️ 오늘은 <b>'+cur.n+'일차</b>입니다 — <a href="#d'+cur.n+'">오늘 일정 바로가기 ›</a>';
       bar.classList.add('show');
       var card=document.getElementById('d'+cur.n);
       if(card)card.classList.add('istoday');
       document.querySelectorAll('.daynav a[data-day]').forEach(function(a){if(parseInt(a.dataset.day,10)===cur.n)a.classList.add('today');});
-    }else if(today0<start){ // 여행 전
+    }else if(today0<start){
       var diff=Math.round((start-today0)/86400000);
       dd.innerHTML='🌿 출발까지 <b>D-'+diff+'</b>';
-    }else if(today0>end){ // 여행 후
+    }else if(today0>end){
       dd.innerHTML='🌿 <b>여수의 추억</b> · 2026.7.6–10';
     }else{
       dd.innerHTML='🌿 <b>여수 여행</b> 2026.7.6–10';
@@ -621,6 +738,36 @@
   // ---- Scroll reveal ----
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.1});
   document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+
+  // ---- Scroll progress ----
+  (function(){
+    var p=document.getElementById('prog');
+    function up(){
+      var h=document.documentElement;
+      var max=h.scrollHeight-h.clientHeight;
+      p.style.width=(max>0?(h.scrollTop/max*100):0)+'%';
+    }
+    window.addEventListener('scroll',up,{passive:true});up();
+  })();
+
+  // ---- Scrollspy ----
+  (function(){
+    var links={};
+    document.querySelectorAll('.daynav a[data-sec]').forEach(function(a){links[a.dataset.sec]=a;});
+    var spy=new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        var a=links[e.target.id];
+        if(!a)return;
+        if(e.isIntersecting){
+          document.querySelectorAll('.daynav a.act').forEach(function(x){x.classList.remove('act');});
+          a.classList.add('act');
+        }
+      });
+    },{rootMargin:'-30% 0px -60% 0px'});
+    ['highlights','pools','hotels','d1','d2','d3','d4','d5','food','video'].forEach(function(id){
+      var el=document.getElementById(id);if(el)spy.observe(el);
+    });
+  })();
 </script>
 </body>
 </html>
