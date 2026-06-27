@@ -247,6 +247,43 @@
   footer .src{font-size:.72rem;color:#6b837a;margin-top:18px;line-height:1.7;max-width:580px;margin-left:auto;margin-right:auto}
   footer a{color:var(--gold-soft);text-decoration:none}
 
+  /* ===== 시간대 반응 히어로 + 스크롤 유도 ===== */
+  .hero .tod{position:absolute;inset:0;z-index:2;pointer-events:none;mix-blend-mode:soft-light;opacity:0;transition:opacity 1.4s ease}
+  .hero.tod-morning .tod{background:linear-gradient(180deg,#ffe9b0,transparent 62%);opacity:.45}
+  .hero.tod-noon .tod{background:linear-gradient(180deg,#bfe6ff,transparent 60%);opacity:.32}
+  .hero.tod-sunset .tod{background:linear-gradient(180deg,#ffb56b,transparent 60%);opacity:.5}
+  .hero.tod-night .tod{background:linear-gradient(180deg,#0b1b3c,transparent 72%);opacity:.55}
+  .scrollcue{position:absolute;bottom:80px;left:50%;transform:translateX(-50%);z-index:6;color:#f3d9a0;text-align:center;font-size:.66rem;letter-spacing:.22em;font-weight:700;text-shadow:0 2px 10px rgba(8,20,16,.6);animation:cue 2.4s ease-in-out infinite}
+  .scrollcue .ar{display:block;margin:7px auto 0;width:16px;height:16px;border-right:2px solid #f3d9a0;border-bottom:2px solid #f3d9a0;transform:rotate(45deg)}
+  @keyframes cue{0%,100%{transform:translateX(-50%) translateY(0);opacity:.7}50%{transform:translateX(-50%) translateY(6px);opacity:1}}
+
+  /* ===== INTRO 에세이 ===== */
+  .intro{background:var(--ivory)}
+  .intro .box{max-width:640px;margin:0 auto;padding-left:26px;border-left:2px solid var(--gold)}
+  .intro .lead{font-size:.72rem;letter-spacing:.34em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:22px}
+  .intro p{font-family:'Gowun Batang',serif;font-size:1.28rem;line-height:1.95;color:#26352c;margin-bottom:16px}
+  .intro p em{font-style:normal;color:var(--terra)}
+  .intro .sign{margin-top:24px;font-size:.92rem;color:var(--ink-soft);font-family:'Gowun Batang',serif}
+
+  /* ===== OVERVIEW ===== */
+  .ov{background:var(--paper)}
+  .ovgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+  @media(min-width:640px){.ovgrid{grid-template-columns:repeat(5,1fr)}}
+  .ovcard{text-align:center;background:var(--ivory);border:1px solid var(--line);border-radius:16px;padding:22px 10px;box-shadow:var(--shadow-sm)}
+  .ovcard .v{font-family:'Gowun Batang',serif;font-size:2.05rem;font-weight:700;color:var(--green);line-height:1}
+  .ovcard .v span{font-size:.95rem;color:var(--gold);margin-left:1px}
+  .ovcard .v.free{color:var(--terra)}
+  .ovcard .l{font-size:.76rem;color:var(--ink-soft);margin-top:9px;font-weight:600}
+  .ribbon{display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:28px;font-size:.82rem;font-weight:700;color:var(--green)}
+  .ribbon b{background:var(--green);color:#fff;padding:7px 14px;border-radius:30px;font-weight:700}
+  .ribbon b.hi{background:var(--gold);color:#241803}
+  .ribbon i{color:var(--gold);font-style:normal}
+
+  /* ===== 장면 번호 (preview) ===== */
+  .hlgrid{counter-reset:scene}
+  .hlcard{counter-increment:scene}
+  .hlcard .cap2 h4::before{content:"SCENE 0" counter(scene);display:block;font-size:.62rem;letter-spacing:.2em;color:var(--gold);font-weight:700;margin-bottom:4px}
+
   .reveal{opacity:0;transform:translateY(26px);transition:.75s cubic-bezier(.2,.7,.2,1)}
   .reveal.in{opacity:1;transform:none}
 </style>
@@ -308,6 +345,7 @@
       <path d="M-60,600 Q80,592 220,600 T500,600 T780,600 T1060,600 T1340,600 T1560,600" opacity=".7"/>
     </g>
   </svg>
+  <div class="tod"></div>
   <div class="frameline"></div>
   <div class="ct2">
     <div class="kicker">YEOSU · LIGHTS OF THE SOUTH SEA</div>
@@ -321,6 +359,7 @@
       <span class="pill">라마다 · 베네치아</span><span class="pill">빅오쇼 · 루프탑풀</span>
     </div>
   </div>
+  <div class="scrollcue">아래로 펼쳐보기<span class="ar"></span></div>
   <div class="wave"><svg viewBox="0 0 1440 64" preserveAspectRatio="none"><path fill="#FBF8F1" d="M0,36 C240,68 480,4 720,28 C960,52 1200,6 1440,32 L1440,64 L0,64 Z"></path></svg></div>
 </header>
 
@@ -336,13 +375,46 @@
   </div>
 </nav>
 
+<!-- INTRO STORY : 초대장 -->
+<section class="intro reveal">
+  <div class="wrap">
+    <div class="box">
+      <div class="lead">An Invitation · 초대</div>
+      <p>2026년 여름, <em>여섯 벗</em>이 남해 여수로 떠납니다.</p>
+      <p>오래 달려온 길 위에서 잠시 멈추고, 바다를 오래 바라보는 일. 서두르지 않고, 시원한 아침과 노을의 시간에만 천천히 걷는 일.</p>
+      <p>섬과 섬을 잇는 다리를 건너고, 절벽 위 암자에서 다도해를 내려다보고, 18층 루프탑에서 물에 잠긴 채 해 지는 걸 지켜보는 <em>나흘 밤</em>.</p>
+      <p>이 페이지는 그 나흘에 부치는 작은 <em>초대장</em>입니다.</p>
+      <div class="sign">— 우리 여섯을 위하여, 여수에서</div>
+    </div>
+  </div>
+</section>
+
+<!-- OVERVIEW : 여행 한눈에 -->
+<section class="ov reveal" id="overview">
+  <div class="wrap">
+    <div class="shead">
+      <div class="no serif">00 — Overview</div>
+      <h2 class="serif">여행 한눈에</h2>
+      <div class="ln"></div>
+    </div>
+    <div class="ovgrid">
+      <div class="ovcard"><div class="v" data-to="4">0<span>박</span></div><div class="l">머무는 밤</div></div>
+      <div class="ovcard"><div class="v" data-to="6">0<span>명</span></div><div class="l">함께하는 벗</div></div>
+      <div class="ovcard"><div class="v" data-to="2">0<span>곳</span></div><div class="l">바다 호텔</div></div>
+      <div class="ovcard"><div class="v" data-to="9">0<span>선</span></div><div class="l">여정의 명소</div></div>
+      <div class="ovcard"><div class="v free">무료</div><div class="l">빅오 분수쇼</div></div>
+    </div>
+    <div class="ribbon"><b>원주·진주</b><i>›</i>섬진강<i>›</i><b class="hi">여수 · 4박</b><i>›</i>광양<i>›</i>작별</div>
+  </div>
+</section>
+
 <!-- HIGHLIGHTS : 풍경 엽서 -->
 <section class="hl" id="highlights">
   <div class="wrap reveal">
     <div class="shead">
-      <div class="no serif">01 — Preview</div>
-      <h2 class="serif">여수, 미리 그려보는 풍경</h2>
-      <p>이번 여정에서 만나게 될 여섯 장면을 작은 그림으로 담았습니다.</p>
+      <div class="no serif">01 — Scenes</div>
+      <h2 class="serif">여정의 장면들</h2>
+      <p>이번 여행에서 만나게 될 여섯 장면. 한 장씩, 미리 그려봅니다.</p>
       <div class="ln"></div>
     </div>
     <div class="hlgrid">
@@ -738,6 +810,39 @@
   // ---- Scroll reveal ----
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.1});
   document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+
+  // ---- 히어로 시간대 반응 ----
+  (function(){
+    var h=document.querySelector('.hero'); if(!h)return;
+    var hr=new Date().getHours();
+    var c=hr<10?'tod-morning':(hr<16?'tod-noon':(hr<20?'tod-sunset':'tod-night'));
+    h.classList.add(c);
+  })();
+
+  // ---- 개요 숫자 카운트업 ----
+  (function(){
+    var sec=document.getElementById('overview'); if(!sec)return;
+    var nums=sec.querySelectorAll('.ovcard .v[data-to]');
+    var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var done=false;
+    var ob=new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(e.isIntersecting&&!done){
+          done=true;
+          nums.forEach(function(el){
+            var to=parseInt(el.dataset.to,10);
+            if(reduce){el.childNodes[0].nodeValue=to;return;}
+            var n=0;
+            var t=setInterval(function(){
+              n+=1; if(n>=to){n=to;clearInterval(t);}
+              el.childNodes[0].nodeValue=n;
+            },110);
+          });
+        }
+      });
+    },{threshold:.35});
+    ob.observe(sec);
+  })();
 
   // ---- Scroll progress ----
   (function(){
